@@ -19,7 +19,7 @@ You can enable the base theme as you would any other theme, but the gratuitous 8
 
 Download this [excellent plugin that allows you to load custom CSS and JS](https://github.com/be5invis/vscode-custom-css).
 
-Locate [`synthwave84.css`](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css) either in this enxtension's VS code install directory, or [directly from the github repo](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css)
+Locate [`synthwave84.css`](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css) either in this extension's VS code install directory, or [directly from the github repo](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css)
 
 Copy `synthwave84.css` to a location on your machine, such as your user folder. Copy the file path and add it to your VS code `settings.json`. On Mac it might look something like the snippet below:
 

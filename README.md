@@ -31,7 +31,7 @@ Copy `synthwave84.css` to a location on your machine, such as your user folder. 
 
 **Important**: Make sure you include the file protocol in the path i.e. `file://`
 
-Open your command pallete with `Ctrl + Shift + P` or `⇧⌘P` and choose "Enable custom CSS and JS". It will prompty you to restart, and when you do the lights should be on :)
+Open your command pallete with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Enable custom CSS and JS". It will prompt you to restart, and when you do the lights should be on :)
 
 **NOTE: Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location**
 

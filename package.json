@@ -2,7 +2,7 @@
     "name": "synthwave-vscode",
     "displayName": "SynthWave '84",
     "description": "A Synthwave-inspired colour theme to satisfy your neon dreams",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Robb Owen",
     "publisher": "RobbOwen",
     "repository": {
@@ -29,4 +29,3 @@
         ]
     }
 }
-  

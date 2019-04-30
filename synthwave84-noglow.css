@@ -1,4 +1,8 @@
 
+.monaco-editor .margin, .monaco-editor-background, .monaco-editor .inputarea.ime-input {
+  background: transparent;
+}
+
 /* Add the subtle gradient to the editor background */
 .monaco-editor {
   background-color: transparent !important;
@@ -28,6 +32,46 @@
   right: 0;
   height: 4px;
   background: linear-gradient(to right, #fc28a8, #03edf9) !important;
+  opacity: 1;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 0px;
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+/* Active sidebar item */
+.monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked {
+  box-shadow: inset 0 -5px 25px #fc28a825;
+  position: relative;
+}
+
+.monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  width: 4px;
+  background: linear-gradient(to bottom, #fc28a8, #03edf9) !important;
+  opacity: 1;
+}
+
+.monaco-workbench .activitybar>.content .monaco-action-bar .action-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  transition: opacity 1s;
+  opacity: 0;
 }
 
 /* update lightbuld to be neon */

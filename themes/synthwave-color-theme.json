@@ -70,7 +70,7 @@
     "editorIndentGuide.background": "#49549539",
     "editorIndentGuide.activeBackground": "#2a2139",
     "editorRuler.foreground": "#34294f33",
-    "editorCodeLens.foreground": "#34294f59",
+    "editorCodeLens.foreground": "#ffffffcc",
     "editorBracketMatch.background": "#34294f66",
     "editorBracketMatch.border": "#495495",
     "editorOverviewRuler.border": "#34294fb3",

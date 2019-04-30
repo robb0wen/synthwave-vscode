@@ -36,7 +36,7 @@ Windows might resemble:
 ```
 {
   "vscode_custom_css.imports": [
-    "file://C:/Users/{your username}/synthwave84.css"
+    "file:///C:/Users/{your username}/synthwave84.css"
     ]
 }
 ```

@@ -47,14 +47,14 @@ Windows might resemble:
 
 **Important**: Make sure you include the file protocol in the path i.e. `file://`
 
-Open your command pallete with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Enable custom CSS and JS". It will prompt you to restart, and when you do the lights should be on :)
+Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Enable custom CSS and JS". It will prompt you to restart, and when you do the lights should be on :)
 
 At this point, VS Code may pop up a message to say that it is corrupted, this is caused by the [custom CSS & JS extension](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) and not this theme. As their installation instructions say, you can click "Don't show again" to dismiss the popup.
 
 **NOTE: Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location**
 
 ## Disabling the glow and uninstallation
-The glow effect started as a joke and was never intended for long-term coding sessions. If you want to turn it off, you can disable it at any time by opening your command pallete with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Disable custom CSS".
+The glow effect started as a joke and was never intended for long-term coding sessions. If you want to turn it off, you can disable it at any time by opening your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Disable custom CSS".
 
 If you decide to change to a different theme altogether, you will also need to disable the custom css in this way. You may also wish to remove the file path from your `settings.json`.
 
@@ -66,7 +66,7 @@ This theme is **very much a work in progress**. I primarily develop in HTML & CS
 
 
 ## Thanks
-Lastly, I couldn't have made this if it weren't for the fantistic work of [Sarah Drasner](https://twitter.com/sarah_edo). Her [tutorial on theming for CSS tricks](https://css-tricks.com/creating-a-vs-code-theme/) was a huge help in developing this 🙏
+Lastly, I couldn't have made this if it weren't for the fantastic work of [Sarah Drasner](https://twitter.com/sarah_edo). Her [tutorial on theming for CSS tricks](https://css-tricks.com/creating-a-vs-code-theme/) was a huge help in developing this 🙏
 
 Similarly, I'd like to thanks [Wes Bos](https://twitter.com/wesbos) for his [cool Cobalt2 theme](https://github.com/wesbos/cobalt2-vscode). His readme helped me figure out how to package this hot mess for public use 👍
 

@@ -1,0 +1,31 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 3' enable-background='new 0 0 6 3' height='3' width='6'>
+  <g fill='#E5F85A' filter="url(#glow3)">
+    <polygon points='5.5,0 2.5,3 1.1,3 4.1,0'/>
+    <polygon points='4,0 6,2 6,0.6 5.4,0'/>
+    <polygon points='0,2 1,3 2.4,3 0,0.6'/>
+  </g>
+  <g fill='#E5F85A' filter="url(#glow2)">
+    <polygon points='5.5,0 2.5,3 1.1,3 4.1,0'/>
+    <polygon points='4,0 6,2 6,0.6 5.4,0'/>
+    <polygon points='0,2 1,3 2.4,3 0,0.6'/>
+  </g>
+  <g fill='#E5F85A' filter="url(#glow)">
+    <polygon points='5.5,0 2.5,3 1.1,3 4.1,0'/>
+    <polygon points='4,0 6,2 6,0.6 5.4,0'/>
+    <polygon points='0,2 1,3 2.4,3 0,0.6'/>
+  </g>
+  <g fill='#fff5f6'>
+    <polygon points='5.5,0 2.5,3 1.1,3 4.1,0'/>
+    <polygon points='4,0 6,2 6,0.6 5.4,0'/>
+    <polygon points='0,2 1,3 2.4,3 0,0.6'/>
+  </g>
+  <filter id="glow" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation=".5" />
+  </filter>
+  <filter id="glow2" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation="1" />
+  </filter>
+  <filter id="glow3" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation="1.5" />
+  </filter>
+</svg>

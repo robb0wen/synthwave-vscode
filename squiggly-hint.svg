@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="3" width="12">
+  <g fill="#47EDF6" filter="url(#glow3)">
+    <circle cx="1" cy="1" r="1"/>
+    <circle cx="5" cy="1" r="1"/>
+    <circle cx="9" cy="1" r="1"/>
+  </g>
+  <g fill="#47EDF6" filter="url(#glow2)">
+    <circle cx="1" cy="1" r="1"/>
+    <circle cx="5" cy="1" r="1"/>
+    <circle cx="9" cy="1" r="1"/>
+  </g>
+  <g fill="#47EDF6" filter="url(#glow)">
+    <circle cx="1" cy="1" r="1"/>
+    <circle cx="5" cy="1" r="1"/>
+    <circle cx="9" cy="1" r="1"/>
+  </g>
+  <g fill="#fff5f6">
+    <circle cx="1" cy="1" r="1"/>
+    <circle cx="5" cy="1" r="1"/>
+    <circle cx="9" cy="1" r="1"/>
+  </g>
+  <filter id="glow" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation=".5" />
+  </filter>
+  <filter id="glow2" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation="1" />
+  </filter>
+  <filter id="glow3" x="5%" y="5%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur stdDeviation="1.5" />
+  </filter>
+</svg>

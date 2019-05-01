@@ -1,3 +1,62 @@
+:root {
+  --squiggly-error-animation-time: 3s;
+  --squiggly-warning-animation-time: 5s;
+  --squiggly-info-animation-time: 7s;
+  --squiggly-hint-animation-time: 10s;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  3% { opacity: 0.1; }
+  6% { opacity: 0.9; }
+  7% { opacity: 0.3; }
+  8% { opacity: 1; }
+  9% { opacity: 0.3; }
+  10% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes flicker2 {
+  0% { opacity: 1; }
+  3% { opacity: 0.2; }
+  6% { opacity: 1; }
+  7% { opacity: 0.4; }
+  8% { opacity: 1; }
+  9% { opacity: 0.6; }
+  10% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes flicker3 {
+  0% { opacity: 1; }
+  3% { opacity: 0.6; }
+  6% { opacity: 1; }
+  7% { opacity: 0.7; }
+  8% { opacity: 1; }
+  9% { opacity: 0.3; }
+  10% { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+
+.monaco-editor .squiggly-error {
+  background: url("./squiggly-error.svg") repeat-x bottom left;
+  animation: flicker var(--squiggly-error-animation-time) infinite step-end;
+}
+
+.monaco-editor .squiggly-warning {
+  background: url("./squiggly-warning.svg") repeat-x bottom left;
+  animation: flicker2 var(--squiggly-warning-animation-time) infinite step-end;
+}
+
+.monaco-editor .squiggly-info {
+  background: url("./squiggly-info.svg") repeat-x bottom left;
+  animation: flicker var(--squiggly-info-animation-time) infinite step-end;
+}
+
+.monaco-editor .squiggly-hint {
+  background: url("./squiggly-hint.svg") no-repeat bottom left;
+  animation: flicker var(--squiggly-hint-animation-time) infinite step-end;
+}
 
 .mtk3 {
   color: #f92aad;
@@ -19,7 +78,7 @@
 
 .mtk7 {
   color: #fff5f6;
-  text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
+  text-shadow: 0 0 2px #000, 0 0 10px rgba(252, 31, 44, 0.459), 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
 }
 
 .mtk8 {

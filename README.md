@@ -52,9 +52,10 @@ Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choos
 
 At this point, VS Code may pop up a message to say that it is corrupted, this is caused by the [custom CSS & JS extension](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) and not this theme. As their installation instructions say, you can click "Don't show again" to dismiss the popup.
 
-**NOTE: Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location.** 
+## Updates
+Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location. 
 
-**This is less than ideal, but until VS code add the option to use custom CSS natively, it's unfortunately the only option.**
+This is less than ideal, but until VS code add the option to use custom CSS natively, it's unfortunately the only option.
 
 ## Disabling the glow and uninstallation
 The glow effect started as a joke and was never intended for long-term coding sessions. If you want to turn it off, you can disable it at any time by opening your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Disable custom CSS".

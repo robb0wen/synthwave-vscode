@@ -66,6 +66,7 @@
   height: 4px;
   background: linear-gradient(to right, #fc28a8, #03edf9) !important;
   opacity: 1;
+  z-index: 6;
 }
 
 .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit::after {
@@ -77,6 +78,7 @@
   height: 0px;
   transition: opacity 1s;
   opacity: 0;
+  z-index: 6;
 }
 
 /* Active sidebar item */

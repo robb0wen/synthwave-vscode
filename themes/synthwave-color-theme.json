@@ -6,7 +6,7 @@
     "foreground": "#ffffff",
     "widget.shadow": "#2a2139",
     "selection.background": "#ffffff36",
-    "errorForeground": "#fa2e47",
+    "errorForeground": "#fe4450",
     "textLink.activeForeground": "#ff7edb",
     "textLink.foreground": "#f97e72",
     "button.background": "#2a2139",
@@ -14,12 +14,12 @@
     "dropdown.listBackground": "#2a2139",
     "input.background": "#2a2139",
     "inputOption.activeBorder": "#ff7edb99",
-    "inputValidation.errorBackground": "#fa2e4780",
-    "inputValidation.errorBorder": "#fa2e4700",
+    "inputValidation.errorBackground": "#fe445080",
+    "inputValidation.errorBorder": "#fe445000",
     "scrollbar.shadow": "#2a2139",
-    "scrollbarSlider.activeBackground": "#34294f88",
-    "scrollbarSlider.background": "#ffffff36",
-    "scrollbarSlider.hoverBackground": "#34294f59",
+    "scrollbarSlider.activeBackground": "#9d8bca20",
+    "scrollbarSlider.background": "#9d8bca30",
+    "scrollbarSlider.hoverBackground": "#9d8bca50",
     "badge.foreground": "#ffffff",
     "badge.background": "#2a2139",
     "progressBar.background": "#f97e72",
@@ -34,7 +34,7 @@
     "list.inactiveSelectionBackground": "#34294f66",
     "list.inactiveSelectionForeground": "#ffffff",
     "list.inactiveFocusBackground": "#2a213999",
-    "list.errorForeground": "#fa2e47E6",
+    "list.errorForeground": "#fe4450E6",
     "list.warningForeground": "#72f1b8bb",
     "activityBar.background": "#171520",
     "activityBar.dropBackground": "#34294f66",
@@ -78,16 +78,16 @@
     "editorOverviewRuler.findMatchForeground": "#34294f",
     "editorOverviewRuler.modifiedForeground": "#49549599",
     "editorOverviewRuler.addedForeground": "#09f7a099",
-    "editorOverviewRuler.deletedForeground": "#fa2e4799",
-    "editorOverviewRuler.errorForeground": "#fa2e47dd",
+    "editorOverviewRuler.deletedForeground": "#fe445099",
+    "editorOverviewRuler.errorForeground": "#fe4450dd",
     "editorOverviewRuler.warningForeground": "#72f1b8cc",
-    "editorError.foreground": "#fa2e47",
+    "editorError.foreground": "#fe4450",
     "editorWarning.foreground": "#72f1b8cc",
     "editorGutter.modifiedBackground": "#495495af",
     "editorGutter.addedBackground": "#206d4bd6",
     "editorGutter.deletedBackground": "#fa2e46a4",
     "diffEditor.insertedTextBackground": "#0beb9916",
-    "diffEditor.removedTextBackground": "#fa2e4716",
+    "diffEditor.removedTextBackground": "#fe445016",
     "editorWidget.background": "#372d4b",
     "editorWidget.border": "#ffffff22",
     "editorWidget.resizeBorder": "#ffffff44",
@@ -120,12 +120,12 @@
     "terminal.ansiBrightCyan": "#03edf9",
     "terminal.ansiBrightGreen": "#72f1b8",
     "terminal.ansiBrightMagenta": "#ff7edb",
-    "terminal.ansiBrightRed": "#fa2e47",
-    "terminal.ansiBrightYellow": "#ffcc00",
+    "terminal.ansiBrightRed": "#fe4450",
+    "terminal.ansiBrightYellow": "#fede5d",
     "terminal.ansiCyan": "#03edf9",
     "terminal.ansiGreen": "#72f1b8",
     "terminal.ansiMagenta": "#ff7edb",
-    "terminal.ansiRed": "#fa2e47",
+    "terminal.ansiRed": "#fe4450",
     "terminal.ansiYellow": "#f97e72",
     "terminal.selectionBackground": "#34294f4d",
     "terminalCursor.background": "#ffffff",
@@ -133,7 +133,7 @@
     "debugToolBar.background": "#241b2f",
     "walkThrough.embeddedEditorBackground": "#232530",
     "gitDecoration.modifiedResourceForeground": "#b893ceee",
-    "gitDecoration.deletedResourceForeground": "#fa2e47",
+    "gitDecoration.deletedResourceForeground": "#fe4450",
     "gitDecoration.addedResourceForeground": "#72f1b8cc",
     "gitDecoration.untrackedResourceForeground": "#72f1b8",
     "gitDecoration.ignoredResourceForeground": "#ffffff59",
@@ -177,7 +177,7 @@
       "name": "Language variable",
       "scope": "variable.language",
       "settings": {
-        "foreground": "#fa2e47",
+        "foreground": "#fe4450",
         "fontStyle": "bold"
       }
     },
@@ -192,7 +192,7 @@
       "name": "Storage (declaration or modifier keyword)",
       "scope": ["storage.type", "storage.modifier"],
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
@@ -234,7 +234,7 @@
       "name": "Entity",
       "scope": "entity.name",
       "settings": {
-        "foreground": "#fa2e47"
+        "foreground": "#fe4450"
       }
     },
     {
@@ -255,14 +255,14 @@
       "name": "Tag attribute",
       "scope": "entity.other.attribute-name",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
       "name": "Tag attribute HTML",
       "scope": "entity.other.attribute-name.html",
       "settings": {
-        "foreground": "#ffcc00",
+        "foreground": "#fede5d",
         "fontStyle": "italic"
       }
     },
@@ -270,7 +270,7 @@
       "name": "Class",
       "scope": ["entity.name.type", "meta.attribute.class.html"],
       "settings": {
-        "foreground": "#fa2e47"
+        "foreground": "#fe4450"
       }
     },
     {
@@ -298,21 +298,21 @@
       "name": "Keyword",
       "scope": "keyword",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
       "name": "Control keyword",
       "scope": "keyword.control",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
       "name": "Operator",
       "scope": "keyword.operator",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
@@ -323,7 +323,7 @@
         "keyword.operator.logical"
       ],
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
@@ -337,7 +337,7 @@
       "name": "Support",
       "scope": "support",
       "settings": {
-        "foreground": "#fa2e47"
+        "foreground": "#fe4450"
       }
     },
     {
@@ -372,7 +372,7 @@
       "name": "Embedded puncuation",
       "scope": "punctuation.section.embedded",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {
@@ -444,7 +444,7 @@
       "name": "CSS support functions (rgb)",
       "scope": "support.function.misc.css",
       "settings": {
-        "foreground": "#fa2e47"
+        "foreground": "#fe4450"
       }
     },
     {
@@ -501,7 +501,7 @@
       "name": "C# storage type",
       "scope": "storage.type.cs",
       "settings": {
-        "foreground": "#fa2e47"
+        "foreground": "#fe4450"
       }
     },
     {
@@ -525,7 +525,7 @@
       "name": "C++ operators",
       "scope": "source.cpp keyword.operator",
       "settings": {
-        "foreground": "#ffcc00"
+        "foreground": "#fede5d"
       }
     },
     {

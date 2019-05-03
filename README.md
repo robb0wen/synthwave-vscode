@@ -1,4 +1,6 @@
 # SynthWave '84 - VS Code theme
+![Synthwave '84 logo over a cityscape](./banner.png)
+
 Do you remember that endless summer back in '84? Cruising down the ocean-highway with the top down, the wind in our hair and heads buzzing with neon dreams? 
 
 No, I don't remember it either, but with this experimental theme we can go there.
@@ -13,15 +15,14 @@ I was a kid in the 80s but for most of my teenage life I strongly disliked nearl
 Much the same way, in the modern web-development world of shaders, React and WebGL, I feel like it's easy to forget that the basics are actually pretty damn good. To that end, this theme goes back to basics - No Shader magic. No cloud-streamed WebGL render-farms. Just plain CSS :)
 
 ## Installation
-You can enable the base theme as you would any other theme and this is the way it's intended to be used day-to-day. If you want to enable the gratuitous 80s glow, it needs a little extra work to get it going. 
+To begin with, [install the base theme from the VS Marketplace](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode). This is the way Synthwave '84 is intended to be used day-to-day. If you want to enable the gratuitous 80s glow, it needs a little extra work to get it going. 
 
 VS code doesn't natively support text effects and as a result, the glow is experimental. It's likely to be buggy and, whilst it looks rad, it isn't intended for extended use. 
 
 If you do decide use the glow effect, you do so at your own risk. Bring your Sunglasses. Here be (laser)dragons.
 
 ### To enable the glow
-
-Install this [excellent plugin that allows you to load custom CSS and JS](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) from the VS Marketplace.   
+Install this [excellent plugin that allows you to load custom CSS and JS](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) from the VS Marketplace. **Please carefully read the ReadMe regarding permission for that extension before continuing with this installation.**
 
 Locate [`synthwave84.css`](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css) either in this extension's VS code install directory, or [directly from the github repo](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84.css). Alternatively, if you want the browser chrome updates without the text glow you can use [`synthwave84-noglow.css`](https://github.com/robb0wen/synthwave-vscode/blob/master/synthwave84-noglow.css).
 
@@ -51,7 +52,9 @@ Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choos
 
 At this point, VS Code may pop up a message to say that it is corrupted, this is caused by the [custom CSS & JS extension](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) and not this theme. As their installation instructions say, you can click "Don't show again" to dismiss the popup.
 
-**NOTE: Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location**
+**NOTE: Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location.** 
+
+**This is less than ideal, but until VS code add the option to use custom CSS natively, it's unfortunately the only option.**
 
 ## Disabling the glow and uninstallation
 The glow effect started as a joke and was never intended for long-term coding sessions. If you want to turn it off, you can disable it at any time by opening your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "Disable custom CSS".
@@ -73,3 +76,5 @@ Lastly, I couldn't have made this if it weren't for the fantastic work of [Sarah
 Similarly, I'd like to thanks [Wes Bos](https://twitter.com/wesbos) for his [cool Cobalt2 theme](https://github.com/wesbos/cobalt2-vscode). His readme helped me figure out how to package this hot mess for public use 👍
 
 If this theme is too much, then I recommend [Horizon](https://github.com/jolaleye/horizon-theme-vscode), or [City Lights](http://citylights.xyz/) for a similar, yet more understated, retro vibe. They're both beautiful.
+
+Banner cityscape image from [Unsplash](https://unsplash.com/photos/DxHR8K5Egjk)

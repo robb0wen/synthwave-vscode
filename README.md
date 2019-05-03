@@ -5,7 +5,7 @@ Do you remember that endless summer back in '84? Cruising down the ocean-highway
 
 No, I don't remember it either, but with this experimental theme we can go there.
 
-![Neon glowing text](./theme.png)
+![Neon glowing text](./theme.jpg)
 
 This colour scheme is influenced by the music and the cover artwork of modern Synthwave bands like FM-84, Timecop 1983 and The Midnight. By association, that means I've also taken heavy influence from the excellent [retro-tinged artwork of James White](https://signalnoise.com/) (check out his work, it's awesome).
 

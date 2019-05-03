@@ -5,7 +5,7 @@
     "focusBorder": "#1f212b",
     "foreground": "#ffffff",
     "widget.shadow": "#2a2139",
-    "selection.background": "#34294f59",
+    "selection.background": "#ffffff36",
     "errorForeground": "#fa2e47",
     "textLink.activeForeground": "#ff7edb",
     "textLink.foreground": "#f97e72",
@@ -18,12 +18,12 @@
     "inputValidation.errorBorder": "#fa2e4700",
     "scrollbar.shadow": "#2a2139",
     "scrollbarSlider.activeBackground": "#34294f88",
-    "scrollbarSlider.background": "#34294f1a",
+    "scrollbarSlider.background": "#ffffff36",
     "scrollbarSlider.hoverBackground": "#34294f59",
     "badge.foreground": "#ffffff",
     "badge.background": "#2a2139",
     "progressBar.background": "#f97e72",
-    "list.activeSelectionBackground": "#2a213980",
+    "list.activeSelectionBackground": "#ffffff36",
     "list.activeSelectionForeground": "#ffffff",
     "list.dropBackground": "#34294f66",
     "list.focusBackground": "#2a213999",
@@ -58,8 +58,8 @@
     "editorLineNumber.activeForeground": "#ffffffcc",
     "editorCursor.background": "#241b2f",
     "editorCursor.foreground": "#f97e72",
-    "editor.selectionBackground": "#46346588",
-    "editor.selectionHighlightBackground": "#34294f59",
+    "editor.selectionBackground": "#ffffff36",
+    "editor.selectionHighlightBackground": "#ffffff36",
     "editor.wordHighlightBackground": "#34294f88",
     "editor.wordHighlightStrongBackground": "#34294f88",
     "editor.findMatchBackground": "#34294f59",
@@ -71,7 +71,7 @@
     "editorIndentGuide.background": "#49549539",
     "editorIndentGuide.activeBackground": "#2a2139",
     "editorRuler.foreground": "#34294f33",
-    "editorCodeLens.foreground": "#ffffffcc",
+    "editorCodeLens.foreground": "#ffffff7c",
     "editorBracketMatch.background": "#34294f66",
     "editorBracketMatch.border": "#495495",
     "editorOverviewRuler.border": "#34294fb3",
@@ -92,6 +92,7 @@
     "editorWidget.border": "#ffffff22",
     "editorWidget.resizeBorder": "#ffffff44",
     "editorSuggestWidget.highlightForeground": "#f97e72",
+    "editorSuggestWidget.selectedBackground": "#ffffff36",
     "peekView.border": "#495495",
     "peekViewEditor.background": "#232530",
     "peekViewEditor.matchHighlightBackground": "#34294f59",
@@ -167,10 +168,7 @@
     },
     {
       "name": "Variable",
-      "scope": [
-        "variable",
-        "entity.name.variable"
-      ],
+      "scope": ["variable", "entity.name.variable"],
       "settings": {
         "foreground": "#ff7edb"
       }
@@ -192,10 +190,7 @@
     },
     {
       "name": "Storage (declaration or modifier keyword)",
-      "scope": [
-        "storage.type",
-        "storage.modifier"
-      ],
+      "scope": ["storage.type", "storage.modifier"],
       "settings": {
         "foreground": "#ffcc00"
       }
@@ -251,9 +246,7 @@
     },
     {
       "name": "HTML or XML tag brackets",
-      "scope": [
-        "punctuation.definition.tag"
-      ],
+      "scope": ["punctuation.definition.tag"],
       "settings": {
         "foreground": "#36f9f6"
       }
@@ -275,10 +268,7 @@
     },
     {
       "name": "Class",
-      "scope": [
-        "entity.name.type",
-        "meta.attribute.class.html"
-      ],
+      "scope": ["entity.name.type", "meta.attribute.class.html"],
       "settings": {
         "foreground": "#fa2e47"
       }
@@ -292,20 +282,14 @@
     },
     {
       "name": "Function",
-      "scope": [
-        "entity.name.function",
-        "variable.function"
-      ],
+      "scope": ["entity.name.function", "variable.function"],
       "settings": {
         "foreground": "#36f9f6"
       }
     },
     {
       "name": "JS Export",
-      "scope": [
-        "keyword.control.export.js",
-        "keyword.control.import.js"
-      ],
+      "scope": ["keyword.control.export.js", "keyword.control.import.js"],
       "settings": {
         "foreground": "#72f1b8"
       }
@@ -372,10 +356,7 @@
     },
     {
       "name": "Object literal key / property",
-      "scope": [
-        "meta.object-literal.key",
-        "support.type.property-name"
-      ],
+      "scope": ["meta.object-literal.key", "support.type.property-name"],
       "settings": {
         "foreground": "#ff7edb"
       }
@@ -461,20 +442,14 @@
     },
     {
       "name": "Markup heading",
-      "scope": [
-        "markup.heading",
-        "entity.name.section"
-      ],
+      "scope": ["markup.heading", "entity.name.section"],
       "settings": {
         "foreground": "#ff7edb"
       }
     },
     {
       "name": "Markup text",
-      "scope": [
-        "text.html",
-        "keyword.operator.assignment"
-      ],
+      "scope": ["text.html", "keyword.operator.assignment"],
       "settings": {
         "foreground": "#ffffffee"
       }

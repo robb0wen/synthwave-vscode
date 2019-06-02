@@ -32,7 +32,7 @@
   text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575;
 }
 
-.monaco-editor .margin, .monaco-editor-background, .monaco-editor .inputarea.ime-input {
+.monaco-editor .margin, .monaco-editor .inputarea.ime-input {
   background: transparent;
 }
 

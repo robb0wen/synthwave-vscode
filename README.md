@@ -31,10 +31,12 @@ Copy your chosen CSS file to a location on your machine, such as your user folde
 ```
 {
   "vscode_custom_css.imports": [
-    "file:///Users/{your username}/synthwave84.css"
+    "file:///Users/{your username}/.vscode/extensions/robbowen.synthwave-vscode-0.0.7/synthwave84.css"
     ]
 }
 ```
+
+Watch out for the version number, this can break the link.
 
 Windows might resemble:
 

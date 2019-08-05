@@ -52,6 +52,8 @@ Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choos
 
 At this point, VS Code may pop up a message to say that it is corrupted, this is caused by the [custom CSS & JS extension](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) and not this theme. As their installation instructions say, you can click "Don't show again" to dismiss the popup.
 
+**PS**: If your did the all things step by step but the feature `glow` still not works, try to `Reload Custom CSS and JS` in your VSCode, [learn more](https://github.com/robb0wen/synthwave-vscode/issues/49#issuecomment-510935988).
+
 ## Updates
 Every time you update VS code, you will need to repeat this step to re-enable custom CSS and JS. Similarly, when the theme updates, you will need to copy the updated css to your chosen location. 
 

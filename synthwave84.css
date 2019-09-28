@@ -133,7 +133,7 @@
     repeating-linear-gradient( 90deg,var(--grid-color) 0%, transparent calc(1px + var(--grid-blur)), transparent var(--grid-size),var(--grid-color) calc(var(--grid-size) + 1px + var(--grid-blur)) ),
     repeating-linear-gradient( 180deg,var(--grid-color) 0%,transparent calc(1px + var(--grid-blur)), transparent var(--grid-size),var(--grid-color) calc(var(--grid-size) + 1px + var(--grid-blur)) );
   transform:perspective( 50vh ) rotateX(70deg) translateZ(10px);
-  animation:moving-grid 0.5s infinite linear;
+  animation:moving-grid 10s infinite linear;
 
 }
 

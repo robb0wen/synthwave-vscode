@@ -31,7 +31,7 @@ In your `settings.json` add the key:
 ```
 "synthwave84.brightness": "AD"
 ```
-The value should be a _hexadecimal value_ from 00 - FF, where 00 is fully transparent. The default brightness is 75. To avoid eye strain, avoid using higher brightness values for extended periods of time.
+The value should be a _float value_ from 0 to 1, where 00 is fully transparent. The default brightness is 0.45. To avoid eye strain, avoid using higher brightness values for extended periods of time.
 
 ## Updates
 Every time you update VS code, you will need to repeat this step to re-enable the glow.

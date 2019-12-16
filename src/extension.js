@@ -6,24 +6,27 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	var config = vscode.workspace.getConfiguration("synthwave84");
+	const config = vscode.workspace.getConfiguration("synthwave84");
 	
-	let neonBrightness = config && config.brightness ? config.brightness : "75";
+	let brightness = parseFloat(config.brightness) > 1 ? 1 : parseFloat(config.brightness);
+	brightness = brightness < 0 ? 0 : brightness;
+	const parsedBrightness = Math.floor(brightness * 255).toString(16).toUpperCase();
+	let neonBrightness = config && parsedBrightness && !isNaN(parsedBrightness) ? parsedBrightness : "75";
 
 	let disposable = vscode.commands.registerCommand('extension.enableNeon', function () {
-		var isWin = /^win/.test(process.platform);
-		var appDir = path.dirname(require.main.filename);
+		const isWin = /^win/.test(process.platform);
+		const appDir = path.dirname(require.main.filename);
 
-		var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
 		console.log(base);
 
-		var htmlFile =
+		const htmlFile =
 			base +
 			(isWin
 				? "\\electron-browser\\workbench\\workbench.html"
 				: "/electron-browser/workbench/workbench.html");
 
-		var templateFile =
+		const templateFile =
 				base +
 				(isWin
 					? "\\electron-browser\\workbench\\neondreams.js"

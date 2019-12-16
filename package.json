@@ -20,6 +20,11 @@
     "categories": [
         "Themes"
     ],
+    "activationEvents": [
+		"onCommand:extension.enableNeon",
+		"onCommand:extension.disableNeon"
+	],
+	"main": "./src/extension.js",
     "contributes": {
         "themes": [
             {
@@ -27,6 +32,16 @@
                 "uiTheme": "vs-dark",
                 "path": "./themes/synthwave-color-theme.json"
             }
-        ]
+        ],
+        "commands": [
+			{
+				"command": "extension.enableNeon",
+				"title": "Synthwave '84: Enable Neon Dreams"
+			},
+			{
+				"command": "extension.disableNeon",
+				"title": "Synthwave '84: Disable Neon Dreams"
+			}
+		]
     }
 }

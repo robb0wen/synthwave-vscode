@@ -29,7 +29,7 @@ As of v0.1.0, external extensions are no longer needed to active the glow. Open 
 ### To customise the glow brightness
 In your `settings.json` add the key:
 ```
-"synthwave84.brightness": "AD"
+"synthwave84.brightness": "0.45"
 ```
 The value should be a _float value_ from 0 to 1, where 00 is fully transparent. The default brightness is 0.45. To avoid eye strain, avoid using higher brightness values for extended periods of time.
 

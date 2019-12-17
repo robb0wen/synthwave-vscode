@@ -7,6 +7,8 @@ const vscode = require('vscode');
  */
 function activate(context) {
 	const config = vscode.workspace.getConfiguration("synthwave84");
+
+	let disableGlow = config && config.disableGlow ? !!config.disableGlow : false;
 	
 	let brightness = parseFloat(config.brightness) > 1 ? 1 : parseFloat(config.brightness);
 	brightness = brightness < 0 ? 0 : brightness;
@@ -38,7 +40,8 @@ function activate(context) {
 			// generate production theme JS
 			const chromeStyles = fs.readFileSync(__dirname +'/css/editor_chrome.css', 'utf-8');
 			const jsTemplate = fs.readFileSync(__dirname +'/js/theme_template.js', 'utf-8');
-			const themeWithChrome = jsTemplate.replace(/\[CHROME_STYLES\]/g, chromeStyles);
+			const themeWithGlow = jsTemplate.replace(/\[DISABLE_GLOW\]/g, disableGlow);
+			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
 			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
 			fs.writeFileSync(templateFile, finalTheme, "utf-8");
 			

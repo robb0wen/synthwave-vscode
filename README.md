@@ -26,12 +26,18 @@ If you do decide use the glow effect, you do so at your own risk. Bring your Sun
 ### To enable the glow
 As of v0.1.0, external extensions are no longer needed to active the glow. Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "__Enable Neon Dreams__". It will prompt you to restart, and when you do the lights should be on :)
 
-### To customise the glow brightness
+#### To customise the glow brightness
 In your `settings.json` add the key:
 ```
 "synthwave84.brightness": "0.45"
 ```
 The value should be a _float value_ from 0 to 1, where 00 is fully transparent. The default brightness is 0.45. To avoid eye strain, avoid using higher brightness values for extended periods of time.
+
+#### To enable editor chrome updates, but disable glow
+In your `settings.json` add the key:
+```
+"synthwave84.disableGlow": true
+```
 
 ## Updates
 Every time you update VS code, you will need to repeat this step to re-enable the glow.

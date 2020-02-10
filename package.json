@@ -21,10 +21,11 @@
         "Themes"
     ],
     "activationEvents": [
-		"onCommand:extension.enableNeon",
-		"onCommand:extension.disableNeon"
-	],
-	"main": "./src/extension.js",
+        "*",
+        "onCommand:synthwave84.enableNeon",
+        "onCommand:synthwave84.whatsNew"
+    ],
+    "main": "./src/extension.js",
     "contributes": {
         "themes": [
             {
@@ -34,14 +35,21 @@
             }
         ],
         "commands": [
-			{
-				"command": "extension.enableNeon",
-				"title": "Synthwave '84: Enable Neon Dreams"
-			},
-			{
-				"command": "extension.disableNeon",
-				"title": "Synthwave '84: Disable Neon Dreams"
-			}
-		]
+            {
+                "command": "synthwave84.enableNeon",
+                "title": "Synthwave '84: Enable Neon Dreams"
+            },
+            {
+                "command": "synthwave84.disableNeon",
+                "title": "Synthwave '84: Disable Neon Dreams"
+            },
+            {
+                "command": "synthwave84.whatsNew",
+                "title": "Synthwave '84: What's New"
+            }
+        ]
+    },
+    "dependencies": {
+        "semver": "^7.1.1"
     }
 }

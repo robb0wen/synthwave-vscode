@@ -369,7 +369,7 @@
       }
     },
     {
-      "name": "Embedded puncuation",
+      "name": "Embedded punctuation",
       "scope": "punctuation.section.embedded",
       "settings": {
         "foreground": "#fede5d"

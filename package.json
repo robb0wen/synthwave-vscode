@@ -2,7 +2,7 @@
     "name": "synthwave-vscode",
     "displayName": "SynthWave '84",
     "description": "A Synthwave-inspired colour theme to satisfy your neon dreams",
-    "version": "0.0.7",
+    "version": "0.1.0",
     "author": "Robb Owen",
     "publisher": "RobbOwen",
     "icon": "icon.png",
@@ -20,6 +20,12 @@
     "categories": [
         "Themes"
     ],
+    "activationEvents": [
+        "*",
+        "onCommand:synthwave84.enableNeon",
+        "onCommand:synthwave84.whatsNew"
+    ],
+    "main": "./src/extension.js",
     "contributes": {
         "themes": [
             {
@@ -27,6 +33,23 @@
                 "uiTheme": "vs-dark",
                 "path": "./themes/synthwave-color-theme.json"
             }
+        ],
+        "commands": [
+            {
+                "command": "synthwave84.enableNeon",
+                "title": "Synthwave '84: Enable Neon Dreams"
+            },
+            {
+                "command": "synthwave84.disableNeon",
+                "title": "Synthwave '84: Disable Neon Dreams"
+            },
+            {
+                "command": "synthwave84.whatsNew",
+                "title": "Synthwave '84: What's New"
+            }
         ]
+    },
+    "dependencies": {
+        "semver": "^7.1.1"
     }
 }

@@ -2,7 +2,7 @@
     "name": "synthwave-vscode",
     "displayName": "SynthWave '84",
     "description": "A Synthwave-inspired colour theme to satisfy your neon dreams",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Robb Owen",
     "publisher": "RobbOwen",
     "icon": "icon.png",
@@ -47,7 +47,22 @@
                 "command": "synthwave84.whatsNew",
                 "title": "Synthwave '84: What's New"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Synthwave '84",
+            "properties": {
+                "synthwave84.brightness": {
+                    "type": "number",
+                    "default": 0.45,
+                    "description": "Set the brightness value for the glow effect. 0.0 is fully transparent and 1.0 is fully bright"
+                },
+                "synthwave84.disableGlow": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Disable the glow effect, but show Synthwave '84 editor chrome updates"
+                }
+            }
+        }
     },
     "dependencies": {
         "semver": "^7.1.1"

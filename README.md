@@ -53,6 +53,11 @@ In your `settings.json` add the key:
 ```
 To see the changes, you need to rerun the activation function. Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "__Enable Neon Dreams__".
 
+### To remove corruption warning and [unsupported] from title-bar
+Checkout [Fix VSCode Checksums](https://marketplace.visualstudio.com/items?itemName=lehni.vscode-fix-checksums 'Fix VSCode Checksums')
+
+Upon installation, open the command palette and execute `Fix Checksums: Apply`. You will need to completely restart VSCode after execution, reopening without fully exiting might not be enough.
+
 ## Updates
 Every time you update VS code, you will need to repeat this step to re-enable the glow.
 

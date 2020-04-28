@@ -106,7 +106,6 @@
     "statusBar.debuggingBackground": "#f97e72",
     "statusBar.debuggingForeground": "#08080f",
     "statusBar.noFolderBackground": "#241b2f",
-    "statusBarItem.hoverBackground": "#2a2139",
     "statusBarItem.prominentBackground": "#2a2139",
     "statusBarItem.prominentHoverBackground": "#34294f",
     "titleBar.activeBackground": "#241b2f",
@@ -519,6 +518,13 @@
       ],
       "settings": {
         "foreground": "#ff7edb"
+      }
+    },
+    {
+      "name": "C placeholder",
+      "scope": "constant.other.placeholder.c",
+      "settings": {
+        "foreground": "#36F9F6"
       }
     },
     {

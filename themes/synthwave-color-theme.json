@@ -524,7 +524,25 @@
       "name": "C placeholder",
       "scope": "constant.other.placeholder.c",
       "settings": {
-        "foreground": "#36F9F6"
+        "foreground": "#72f1b8",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "C preprocessors",
+      "scope": [
+        "keyword.control.directive.include.c",
+        "keyword.control.directive.define.c"
+      ],
+      "settings": {
+        "foreground": "#72f1b8"
+      }
+    },
+    {
+      "name": "C storage modifier",
+      "scope": "storage.modifier.c",
+      "settings": {
+        "foreground": "#fe4450"
       }
     },
     {

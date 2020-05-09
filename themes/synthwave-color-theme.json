@@ -62,8 +62,8 @@
     "editor.selectionHighlightBackground": "#ffffff36",
     "editor.wordHighlightBackground": "#34294f88",
     "editor.wordHighlightStrongBackground": "#34294f88",
-    "editor.findMatchBackground": "#34294f59",
-    "editor.findMatchHighlightBackground": "#34294f33",
+    "editor.findMatchBackground": "#D18616bb",
+    "editor.findMatchHighlightBackground": "#D1861655",
     "editor.findRangeHighlightBackground": "#34294f1a",
     "editor.hoverHighlightBackground": "#463465",
     "editor.lineHighlightBackground": "#34294f66",
@@ -75,15 +75,15 @@
     "editorBracketMatch.background": "#34294f66",
     "editorBracketMatch.border": "#495495",
     "editorOverviewRuler.border": "#34294fb3",
-    "editorOverviewRuler.findMatchForeground": "#34294f",
-    "editorOverviewRuler.modifiedForeground": "#49549599",
+    "editorOverviewRuler.findMatchForeground": "#D1861699",
+    "editorOverviewRuler.modifiedForeground": "#b893ce99",
     "editorOverviewRuler.addedForeground": "#09f7a099",
     "editorOverviewRuler.deletedForeground": "#fe445099",
     "editorOverviewRuler.errorForeground": "#fe4450dd",
     "editorOverviewRuler.warningForeground": "#72f1b8cc",
     "editorError.foreground": "#fe4450",
     "editorWarning.foreground": "#72f1b8cc",
-    "editorGutter.modifiedBackground": "#495495af",
+    "editorGutter.modifiedBackground": "#b893ce8f",
     "editorGutter.addedBackground": "#206d4bd6",
     "editorGutter.deletedBackground": "#fa2e46a4",
     "diffEditor.insertedTextBackground": "#0beb9916",
@@ -95,9 +95,9 @@
     "editorSuggestWidget.selectedBackground": "#ffffff36",
     "peekView.border": "#495495",
     "peekViewEditor.background": "#232530",
-    "peekViewEditor.matchHighlightBackground": "#34294f59",
+    "peekViewEditor.matchHighlightBackground": "#D18616bb",
     "peekViewResult.background": "#232530",
-    "peekViewResult.matchHighlightBackground": "#34294f59",
+    "peekViewResult.matchHighlightBackground": "#D1861655",
     "peekViewResult.selectionBackground": "#2a213980",
     "peekViewTitle.background": "#232530",
     "panelTitle.activeBorder": "#f97e72",
@@ -136,6 +136,9 @@
     "gitDecoration.addedResourceForeground": "#72f1b8cc",
     "gitDecoration.untrackedResourceForeground": "#72f1b8",
     "gitDecoration.ignoredResourceForeground": "#ffffff59",
+    "minimapGutter.addedBackground": "#09f7a099",
+    "minimapGutter.modifiedBackground": "#b893ce",
+    "minimapGutter.deletedBackground": "#fe4450",
     "breadcrumbPicker.background": "#232530"
   },
   "tokenColors": [
@@ -524,7 +527,25 @@
       "name": "C placeholder",
       "scope": "constant.other.placeholder.c",
       "settings": {
-        "foreground": "#36F9F6"
+        "foreground": "#72f1b8",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "C preprocessors",
+      "scope": [
+        "keyword.control.directive.include.c",
+        "keyword.control.directive.define.c"
+      ],
+      "settings": {
+        "foreground": "#72f1b8"
+      }
+    },
+    {
+      "name": "C storage modifier",
+      "scope": "storage.modifier.c",
+      "settings": {
+        "foreground": "#fe4450"
       }
     },
     {
@@ -532,6 +553,31 @@
       "scope": "source.cpp keyword.operator",
       "settings": {
         "foreground": "#fede5d"
+      }
+    },
+    {
+      "name": "C++ placeholder",
+      "scope": "constant.other.placeholder.cpp",
+      "settings": {
+        "foreground": "#72f1b8",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "C++ include",
+      "scope": [
+        "keyword.control.directive.include.cpp",
+        "keyword.control.directive.define.cpp"
+      ],
+      "settings": {
+        "foreground": "#72f1b8"
+      }
+    },
+    {
+      "name": "C++ constant modifier",
+      "scope": "storage.modifier.specifier.const.cpp",
+      "settings": {
+        "foreground": "#fe4450"
       }
     },
     {

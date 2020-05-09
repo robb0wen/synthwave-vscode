@@ -3,29 +3,8 @@
   // Grab body node
   const bodyNode = document.querySelector('body');
 
-  // Callback function to execute when mutations are observed
-  const watchForBootstrap = function(mutationsList, observer) {
-      for(let mutation of mutationsList) {
-          if (mutation.type === 'attributes') {
-            // only init if we're using a Synthwave 84 subtheme
-            const isUsingSynthwave = document.querySelector('[class*="RobbOwen-synthwave-vscode-themes"]');
-            const tokensLoaded = document.querySelector('.vscode-tokens-styles');
-            const tokenStyles = document.querySelector('.vscode-tokens-styles').innerText;
-
-            // Everything we need is ready, so initialise
-            if (isUsingSynthwave && tokensLoaded && tokenStyles) {
-                initNeonDreams([DISABLE_GLOW]);
-            }
-          }
-      }
-  };
-
-  // Use a mutation observer to check when we can bootstrap the theme
-  const observer = new MutationObserver(watchForBootstrap);
-  observer.observe(bodyNode, { attributes: true });
-
   // Replace the styles with the glow theme
-  const initNeonDreams = (disableGlow) => {
+  const initNeonDreams = (disableGlow, obs) => {
     var themeStyleTag = document.querySelector('.vscode-tokens-styles');
 
     var initialThemeStyles = themeStyleTag.innerText;
@@ -56,7 +35,41 @@
     
     console.log('Synthwave \'84: NEON DREAMS initialised!');
     // disconnect the observer because we don't need it anymore
-    observer.disconnect();
+    obs.disconnect();
   };
+
+  // Callback function to execute when mutations are observed
+  const watchForBootstrap = function(mutationsList, observer) {
+      for(let mutation of mutationsList) {
+          if (mutation.type === 'attributes') {
+            // only init if we're using a Synthwave 84 subtheme
+            const isUsingSynthwave = document.querySelector('[class*="RobbOwen-synthwave-vscode-themes"]');
+            // does the style div exist yet?
+            const tokensLoaded = document.querySelector('.vscode-tokens-styles');
+            // does it have content ?
+            const tokenStyles = document.querySelector('.vscode-tokens-styles').innerText;
+
+            // sometimes VS code takes a while to init the styles content, so stop this observer and add an observer for that
+            if (isUsingSynthwave && tokensLoaded) {
+              observer.disconnect();
+              observer.observe(tokensLoaded, { childList: true });
+            }
+          }
+          if (mutation.type === 'childList') {
+            const isUsingSynthwave = document.querySelector('[class*="RobbOwen-synthwave-vscode-themes"]');
+            const tokensLoaded = document.querySelector('.vscode-tokens-styles');
+            const tokenStyles = document.querySelector('.vscode-tokens-styles').innerText;
+
+            // Everything we need is ready, so initialise
+            if (isUsingSynthwave && tokensLoaded && tokenStyles) {
+                initNeonDreams([DISABLE_GLOW], observer);
+            }
+          }
+      }
+  };
+
+  // Use a mutation observer to check when we can bootstrap the theme
+  const observer = new MutationObserver(watchForBootstrap);
+  observer.observe(bodyNode, { attributes: true });
 
 })();

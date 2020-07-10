@@ -7,6 +7,10 @@
   const initNeonDreams = (disableGlow, obs) => {
     var themeStyleTag = document.querySelector('.vscode-tokens-styles');
 
+    if (!themeStyleTag) {
+      return;
+    }
+
     var initialThemeStyles = themeStyleTag.innerText;
     
     var updatedThemeStyles = initialThemeStyles;
@@ -31,11 +35,17 @@
     /* append the remaining styles */
     updatedThemeStyles = `${updatedThemeStyles}[CHROME_STYLES]`;
 
-    themeStyleTag.innerText = updatedThemeStyles.replace(/(\r\n|\n|\r)/gm, '');
+    const newStyleTag = document.createElement('style');
+    newStyleTag.setAttribute("id", "synthwave-84-theme-styles");
+    newStyleTag.innerText = updatedThemeStyles.replace(/(\r\n|\n|\r)/gm, '');
+    document.body.appendChild(newStyleTag);
     
     console.log('Synthwave \'84: NEON DREAMS initialised!');
+    
     // disconnect the observer because we don't need it anymore
-    obs.disconnect();
+    if (obs) {
+      obs.disconnect();
+    }
   };
 
   // Callback function to execute when mutations are observed
@@ -67,6 +77,9 @@
           }
       }
   };
+
+  // try to initialise the theme
+  initNeonDreams([DISABLE_GLOW]);
 
   // Use a mutation observer to check when we can bootstrap the theme
   const observer = new MutationObserver(watchForBootstrap);

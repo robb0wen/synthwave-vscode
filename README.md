@@ -27,7 +27,7 @@ If you do decide use the glow effect, you do so at your own risk. Bring your Sun
 ### To enable the glow
 As of v0.1.0, external extensions are no longer needed to active the glow. 
 
-Firstly, if you are a Windows user, you may need to run VS Code with administrator priviliges. For Linux and Mac users, Code must not be installed in a read-only location and you must have write permissions.
+Firstly, if you are a Windows user, you may need to run VS Code with administrator privileges. For Linux and Mac users, Code must not be installed in a read-only location and you must have write permissions.
 
 If you have been using Synthwave prior to v0.1.0, you will likely have used the Custom CSS and JS extension to enable the glow. Before enabling Neon Dreams, you will need to disable the prior method. You can do this by pressing `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "__Disable Custom CSS and JS__"
 

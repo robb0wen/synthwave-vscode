@@ -680,6 +680,59 @@
       "settings": {
         "foreground": "#ff7edbff"
       }
-    }
+    },
+    {
+      "name": "Go basic",
+      "scope": "source.go",
+      "settings": {
+        "foreground": "#ff7edbff"
+      }
+    },
+    {
+      "name": "Go Function Calls",
+      "scope": "source.go meta.function-call.go",
+      "settings": {
+        "foreground": "#36f9f6"
+      }
+    },
+    {
+      "name": "Go Keywords",
+      "scope": [
+        "source.go keyword.package.go",
+        "source.go keyword.import.go",
+        "source.go keyword.function.go",
+        "source.go keyword.type.go",
+        "source.go keyword.const.go",
+        "source.go keyword.var.go",
+        "source.go keyword.map.go",
+        "source.go keyword.channel.go",
+        "source.go keyword.control.go"
+      ],
+      "settings": {
+        "foreground": "#fede5d",
+      }
+    },
+    {
+      "name": "Go interfaces",
+      "scope": [
+        "source.go storage.type",
+        "source.go keyword.struct.go",
+        "source.go keyword.interface.go",
+      ],
+      "settings": {
+        "foreground": "#72f1b8",
+      }
+    },
+    {
+      "name": "Go Constants e.g. nil, string format (%s, %d, etc.)",
+      "scope": [
+        "source.go constant.language.go",
+        "source.go constant.other.placeholder.go",
+        "source.go variable"
+      ],
+      "settings": {
+        "foreground": "#2EE2FA"
+      }
+    },
   ]
 }

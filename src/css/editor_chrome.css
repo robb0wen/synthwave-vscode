@@ -19,7 +19,7 @@
 /* Active tab neon */
 .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active {
   box-shadow: inset 0 -5px 25px #fc28a825;
-  position: relative;
+  position: sticky;
 }
 
 /* Active tab stripe */

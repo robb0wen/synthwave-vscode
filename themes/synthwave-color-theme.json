@@ -29,7 +29,7 @@
     "list.focusBackground": "#ffffff20",
     "list.focusForeground": "#ffffff",
     "list.highlightForeground": "#f97e72",
-    "list.hoverBackground": "#2a213999",
+    "list.hoverBackground": "#37294d99",
     "list.hoverForeground": "#ffffff",
     "list.inactiveSelectionBackground": "#ffffff20",
     "list.inactiveSelectionForeground": "#ffffff",
@@ -65,7 +65,7 @@
     "editor.findMatchBackground": "#D18616bb",
     "editor.findMatchHighlightBackground": "#D1861655",
     "editor.findRangeHighlightBackground": "#34294f1a",
-    "editor.hoverHighlightBackground": "#463465",
+    "editor.hoverHighlightBackground": "#463564",
     "editor.lineHighlightBorder": "#7059AB66",
     "editor.rangeHighlightBackground": "#49549539",
     "editorIndentGuide.background": "#444251",
@@ -88,7 +88,7 @@
     "editorGutter.deletedBackground": "#fa2e46a4",
     "diffEditor.insertedTextBackground": "#0beb9935",
     "diffEditor.removedTextBackground": "#fe445035",
-    "editorWidget.background": "#463465",
+    "editorWidget.background": "#171520DC",
     "editorWidget.border": "#ffffff22",
     "editorWidget.resizeBorder": "#ffffff44",
     "editorSuggestWidget.highlightForeground": "#f97e72",
@@ -146,7 +146,7 @@
       "name": "Comment",
       "scope": "comment",
       "settings": {
-        "foreground": "#949CD3",
+        "foreground": "#848bbd",
         "fontStyle": "italic"
       }
     },

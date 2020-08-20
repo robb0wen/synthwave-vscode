@@ -144,7 +144,12 @@
   "tokenColors": [
     {
       "name": "Comment",
-      "scope": "comment",
+      "scope": [
+        "comment", 
+        "string.quoted.docstring.multi.python", 
+        "string.quoted.docstring.multi.python punctuation.definition.string.begin.python",
+        "string.quoted.docstring.multi.python punctuation.definition.string.end.python"
+      ],
       "settings": {
         "foreground": "#848bbd",
         "fontStyle": "italic"
@@ -294,6 +299,13 @@
       "scope": ["keyword.control.export.js", "keyword.control.import.js"],
       "settings": {
         "foreground": "#72f1b8"
+      }
+    },
+    {
+      "name": "JS Numerics",
+      "scope": ["constant.numeric.decimal.js"],
+      "settings": {
+        "foreground": "#2EE2FA"
       }
     },
     {
@@ -458,7 +470,7 @@
     },
     {
       "name": "Markup text",
-      "scope": ["text.html", "keyword.operator.assignment"],
+      "scope": ["text.html", "keyword.operator.assignment", ],
       "settings": {
         "foreground": "#ffffffee"
       }
@@ -497,6 +509,13 @@
       "scope": "meta.function-call.generic.python",
       "settings": {
         "foreground": "#36f9f6"
+      }
+    },
+    {
+      "name": "Python variable params",
+      "scope": "variable.parameter.function-call.python",
+      "settings": {
+        "foreground": "#72f1b8"
       }
     },
     {
@@ -732,6 +751,119 @@
       ],
       "settings": {
         "foreground": "#2EE2FA"
+      }
+    },
+    {
+      "name": "Markdown links and image paths",
+      "scope": [
+        "markup.underline.link.markdown",
+        "markup.inline.raw.string.markdown"
+      ],
+      "settings": {
+        "foreground": "#72f1b8",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown links and image paths",
+      "scope": [
+        "string.other.link.title.markdown"
+      ],
+      "settings": {
+        "foreground": "#fede5d"
+      }
+    },
+    {
+      "name": "Markdown headings",
+      "scope": [
+        "markup.heading.markdown",
+        "entity.name.section.markdown",
+      ],
+      "settings": {
+        "foreground": "#ff7edb",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown italic",
+      "scope": [
+        "markup.italic.markdown",
+      ],
+      "settings": {
+        "foreground": "#2EE2FA",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold",
+      "scope": [
+        "markup.bold.markdown",
+      ],
+      "settings": {
+        "foreground": "#2EE2FA",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown quotes",
+      "scope": [
+        "punctuation.definition.quote.begin.markdown",
+        "markup.quote.markdown",
+      ],
+      "settings": {
+        "foreground": "#72f1b8",
+      }
+    },
+    {
+      "name": "Basic source colours",
+      "scope": ["source.dart", "source.python", "source.scala"],
+      "settings": {
+        "foreground": "#ff7edbff"
+      }
+    },
+    {
+      "name": "Dart strings",
+      "scope": [
+        "string.interpolated.single.dart",
+      ],
+      "settings": {
+        "foreground": "#f97e72",
+      }
+    },
+    {
+      "name": "Dart variable params",
+      "scope": [
+        "variable.parameter.dart",
+      ],
+      "settings": {
+        "foreground": "#72f1b8",
+      }
+    },
+    {
+      "name": "Dart numerics",
+      "scope": [
+        "constant.numeric.dart",
+      ],
+      "settings": {
+        "foreground": "#2EE2FA",
+      }
+    },
+    {
+      "name": "Scala variable params",
+      "scope": [
+        "variable.parameter.scala",
+      ],
+      "settings": {
+        "foreground": "#2EE2FA",
+      }
+    },
+    {
+      "name": "Scala",
+      "scope": [
+        "meta.template.expression.scala",
+      ],
+      "settings": {
+        "foreground": "#72f1b8",
       }
     },
   ]

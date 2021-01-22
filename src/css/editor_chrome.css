@@ -80,7 +80,7 @@
   opacity: 0;
 }
 
-/* update lightbuld to be neon */
+/* update lightbulb to be neon */
 .codicon-lightbulb-autofix:before,
 .codicon-light-bulb:before, .codicon-lightbulb:before {
   content: '';

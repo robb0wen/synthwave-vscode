@@ -38,7 +38,7 @@ Note: In the name of simplifying the install process and mitigating update-relat
 #### To customise the glow brightness
 In your `settings.json` add the key:
 ```
-"synthwave84.brightness": "0.45"
+"synthwave84.brightness": 0.45
 ```
 The value should be a _float value_ from 0 to 1, where 0.0 is fully transparent. The default brightness is 0.45. To avoid eye strain, avoid using higher brightness values for extended periods of time. 
 

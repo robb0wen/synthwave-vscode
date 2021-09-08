@@ -22,12 +22,12 @@ function activate(context) {
 			const d = diff(this.version, prevVersion);
 			// show again on major or minor updates
 			if (d == 'major' || d == 'minor') {
-				showUpdatePage();
 				context.globalState.update(`${this.extensionName}.version`, this.version);
+				showUpdatePage();	
 			}
 		} else {
-			showUpdatePage();
 			context.globalState.update(`${this.extensionName}.version`, this.version);
+			showUpdatePage();
 		}
 
 	}

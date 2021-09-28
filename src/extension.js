@@ -9,28 +9,6 @@ const diff = require('semver/functions/diff');
 function activate(context) {
 	this.extensionName = 'RobbOwen.synthwave-vscode';
 	this.cntx = context;
-	this.extension = vscode.extensions.getExtension(this.extensionName);
-	if (this.extension) {
-		// grab current version number
-		this.version = this.extension.packageJSON.version;
-
-		// grab last recorded version
-		const prevVersion = context.globalState.get(`${this.extensionName}.version`);
-
-		if (prevVersion) {
-			// check it has changed.
-			const d = diff(this.version, prevVersion);
-			// show again on major or minor updates
-			if (d == 'major' || d == 'minor') {
-				// showUpdatePage();
-				context.globalState.update(`${this.extensionName}.version`, this.version);
-			}
-		} else {
-			//showUpdatePage();
-			context.globalState.update(`${this.extensionName}.version`, this.version);
-		}
-
-	}
 	
 	const config = vscode.workspace.getConfiguration("synthwave84");
 
@@ -113,28 +91,12 @@ function activate(context) {
 	});
 
 	let disable = vscode.commands.registerCommand('synthwave84.disableNeon', uninstall);
-	let whatsNew = vscode.commands.registerCommand('synthwave84.whatsNew', showUpdatePage);
 	
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);
 	context.subscriptions.push(whatsNew);
 }
 exports.activate = activate;
-
-
-function showUpdatePage() {
-		const panel = vscode.window.createWebviewPanel(
-			`synthwave.whatsNew`, // Identifies the type of the webview. Used internally
-			'What\'s new for Synthwave \'84', // Title of the panel displayed to the user
-			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-			{ enableScripts: !0 } // Webview options. More on these later.
-		);
-
-		const viewPath = path.join(this.cntx.extensionPath, "whats-new", "view.html");
-		const viewResourcePath = panel.webview.asWebviewUri(viewPath);
-		const htmlContent = fs.readFileSync(viewPath, "utf-8");
-		panel.webview.html = htmlContent;
-}
 
 // this method is called when your extension is deactivated
 function deactivate() {

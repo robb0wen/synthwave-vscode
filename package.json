@@ -22,8 +22,7 @@
     ],
     "activationEvents": [
         "*",
-        "onCommand:synthwave84.enableNeon",
-        "onCommand:synthwave84.whatsNew"
+        "onCommand:synthwave84.enableNeon"
     ],
     "main": "./src/extension.js",
     "contributes": {
@@ -42,10 +41,6 @@
             {
                 "command": "synthwave84.disableNeon",
                 "title": "Synthwave '84: Disable Neon Dreams"
-            },
-            {
-                "command": "synthwave84.whatsNew",
-                "title": "Synthwave '84: What's New"
             }
         ],
         "configuration": {

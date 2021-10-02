@@ -94,7 +94,6 @@ function activate(context) {
 	
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);
-	context.subscriptions.push(whatsNew);
 }
 exports.activate = activate;
 

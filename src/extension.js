@@ -3,6 +3,11 @@ const fs = require('fs');
 const vscode = require('vscode');
 const diff = require('semver/functions/diff');
 
+const isWin = /^win/.test(process.platform);
+function winfix(path) {
+	return isWin ? path.replace("/", "\\", path) : path;
+}
+
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -23,21 +28,10 @@ function activate(context) {
 
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
-		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
-		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
-
-		const htmlFile =
-			base +
-			(isWin
-				? "\\electron-browser\\workbench\\workbench.html"
-				: "/electron-browser/workbench/workbench.html");
-
-		const templateFile =
-				base +
-				(isWin
-					? "\\electron-browser\\workbench\\neondreams.js"
-					: "/electron-browser/workbench/neondreams.js");
+		const base = appDir + winfix("/vs/code");
+		const htmlFile = base + winfix("/electron-browser/workbench/workbench.html");
+		const templateFile = base + winfix("/electron-browser/workbench/neondreams.js");
 
 		try {
 
@@ -105,12 +99,8 @@ function deactivate() {
 function uninstall() {
 	var isWin = /^win/.test(process.platform);
 	var appDir = path.dirname(require.main.filename);
-	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
-	var htmlFile =
-		base +
-		(isWin
-			? "\\electron-browser\\workbench\\workbench.html"
-			: "/electron-browser/workbench/workbench.html");
+	var base = appDir + winfix("/vs/code");
+	var htmlFile = base + winfix("/electron-browser/workbench/workbench.html");
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");

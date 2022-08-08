@@ -27,17 +27,21 @@ function activate(context) {
 		const appDir = path.dirname(require.main.filename);
 		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
 
+		const sandboxPath = base + (isWin ? "\\electron-sandbox" : "/electron-sandbox");
+		const usesSandbox = fs.existsSync(sandboxPath);
+		const electronPath = usesSandbox ? 'electron-sandbox' : 'electron-browser';
+
 		const htmlFile =
 			base +
 			(isWin
-				? "\\electron-sandbox\\workbench\\workbench.html"
-				: "/electron-sandbox/workbench/workbench.html");
+				? `\\${electronPath}\\workbench\\workbench.html`
+				: `/${electronPath}/workbench/workbench.html`);
 
 		const templateFile =
 				base +
 				(isWin
-					? "\\electron-sandbox\\workbench\\neondreams.js"
-					: "/electron-sandbox/workbench/neondreams.js");
+					? `\\${electronPath}\\workbench\\neondreams.js`
+					: `/${electronPath}/workbench/neondreams.js`);
 
 		try {
 
@@ -106,11 +110,16 @@ function uninstall() {
 	var isWin = /^win/.test(process.platform);
 	var appDir = path.dirname(require.main.filename);
 	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
-	var htmlFile =
+	
+	const sandboxPath = base + (isWin ? "\\electron-sandbox" : "/electron-sandbox");
+	const usesSandbox = fs.existsSync(sandboxPath);
+	const electronPath = usesSandbox ? 'electron-sandbox' : 'electron-browser';
+
+	const htmlFile =
 		base +
 		(isWin
-			? "\\electron-sandbox\\workbench\\workbench.html"
-			: "/electron-sandbox/workbench/workbench.html");
+			? `\\${electronPath}\\workbench\\workbench.html`
+			: `/${electronPath}/workbench/workbench.html`);
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");

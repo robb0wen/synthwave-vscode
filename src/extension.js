@@ -82,7 +82,7 @@ function activate(context) {
 			}
 		} catch (e) {
 			if (/ENOENT|EACCES|EPERM/.test(e.code)) {
-				vscode.window.showInformationMessage("You must run VS code with admin privileges in order to enable Neon Dreams.");
+				vscode.window.showInformationMessage("Neon Dreams was unable to modify the core VS code files needed to launch the extension. You may need to run VS code with admin privileges in order to enable Neon Dreams.");
 				return;
 			} else {
 				vscode.window.showErrorMessage('Something went wrong when starting neon dreams');

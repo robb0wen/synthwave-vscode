@@ -26,18 +26,19 @@ function activate(context) {
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
 		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 		const htmlFile =
 			base +
 			(isWin
-				? "\\electron-browser\\workbench\\workbench.html"
-				: "/electron-browser/workbench/workbench.html");
+				? "\\"+electronBase+"\\workbench\\workbench.html"
+				: "/"+electronBase+"/workbench/workbench.html");
 
 		const templateFile =
 				base +
 				(isWin
-					? "\\electron-browser\\workbench\\neondreams.js"
-					: "/electron-browser/workbench/neondreams.js");
+					? "\\"+electronBase+"\\workbench\\neondreams.js"
+					: "/"+electronBase+"/workbench/neondreams.js");
 
 		try {
 
@@ -106,11 +107,13 @@ function uninstall() {
 	var isWin = /^win/.test(process.platform);
 	var appDir = path.dirname(require.main.filename);
 	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+
 	var htmlFile =
 		base +
 		(isWin
-			? "\\electron-browser\\workbench\\workbench.html"
-			: "/electron-browser/workbench/workbench.html");
+			? "\\"+electronBase+"\\workbench\\workbench.html"
+			: "/"+electronBase+"/workbench/workbench.html");
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");
@@ -131,6 +134,22 @@ function uninstall() {
 	} else {
 		vscode.window.showInformationMessage('Neon dreams isn\'t running.');
 	}
+}
+
+// Returns true if the VS Code version running this extension is below the
+// version specified in the "version" parameter. Otherwise returns false.
+function isVSCodeBelowVersion(version) {
+	const vscodeVersion = vscode.version;
+	const vscodeVersionArray = vscodeVersion.split('.');
+	const versionArray = version.split('.');
+	
+	for (let i = 0; i < versionArray.length; i++) {
+		if (vscodeVersionArray[i] < versionArray[i]) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 module.exports = {

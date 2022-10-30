@@ -33,6 +33,12 @@
 
       /* replace white */
       updatedThemeStyles = updatedThemeStyles.replace(/color: #ffffff;/gi, "color: #f4eee4; text-shadow: 0 0 2px #393a33, 0 0 8px #ffffff[NEON_BRIGHTNESS], 0 0 2px #ffffff[NEON_BRIGHTNESS]; backface-visibility: hidden;");
+
+      /* make neon tan/yellow */
+      updatedThemeStyles = updatedThemeStyles.replace(/color: #FFD1B9;/gi, "color: #F4EEE4; text-shadow: 0 0 2px #AA0000[NEON_BRIGHTNESS], 0 0 5px #FFD1B9[NEON_BRIGHTNESS], 0 0 10px #FFD1B9[NEON_BRIGHTNESS]; backface-visibility: hidden;");
+
+      /* make neon light-pink/purple */
+      updatedThemeStyles = updatedThemeStyles.replace(/color: #F6ACFF;/gi, "color: #F6ACFF; text-shadow: 1px 1px 8px #B000E6[NEON_BRIGHTNESS], 1px -1px 8px #B000E6[NEON_BRIGHTNESS], -1px 1px 8px #B000E6[NEON_BRIGHTNESS], -1px -1px 8px #B000E6[NEON_BRIGHTNESS]; backface-visibility: hidden;");
     }
 
     /* append the remaining styles */

@@ -60,6 +60,6 @@
         }
     },
     "dependencies": {
-        "semver": "^7.1.1"
+        "semver": "^7.5.2"
     }
 }

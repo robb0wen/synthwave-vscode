@@ -13,6 +13,7 @@
     "engines": {
         "vscode": "^1.33.0"
     },
+    "extensionKind": ["ui"],
     "keywords": [
         "retro",
         "80s"

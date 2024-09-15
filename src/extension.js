@@ -144,6 +144,7 @@ function deactivate() {
 }
 
 function uninstall() {
+  const isWin = /^win/.test(process.platform);
   const appDir = `${path.dirname(vscode.env.appRoot)}/app/out`;
   const base = appDir + (isWin ? '\\vs\\code' : '/vs/code');
   const electronBase = isVSCodeBelowVersion('1.70.0')

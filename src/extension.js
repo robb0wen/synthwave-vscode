@@ -24,7 +24,7 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const isWin = /^win/.test(process.platform);
-		const appDir = path.dirname(require.main.filename);
+		const appDir = path.dirname(require?.main?.filename || process.execPath);
 		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
@@ -105,7 +105,7 @@ function deactivate() {
 
 function uninstall() {
 	var isWin = /^win/.test(process.platform);
-	var appDir = path.dirname(require.main.filename);
+	var appDir = path.dirname(require?.main?.filename || process.execPath);
 	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
 	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 

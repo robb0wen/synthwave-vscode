@@ -93,7 +93,7 @@ function activate(context) {
 
           vscode.window
             .showInformationMessage(
-              'Neon Dreams enabled. VS code must reload for this change to take effect. Code may display a warning that it is corrupted, this is normal. You can dismiss this message by choosing 'Don't show this again' on the notification.',
+              "Neon Dreams enabled. VS code must reload for this change to take effect. Code may display a warning that it is corrupted, this is normal. You can dismiss this message by choosing 'Don't show this again' on the notification.",
               { title: 'Restart editor to complete' }
             )
             .then(function () {

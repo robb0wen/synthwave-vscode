@@ -31,7 +31,7 @@ function activate(context) {
 		const htmlFile =
 			base +
 			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.html"
+				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
 				: "/"+electronBase+"/workbench/workbench.html");
 
 		const templateFile =
@@ -112,7 +112,7 @@ function uninstall() {
 	var htmlFile =
 		base +
 		(isWin
-			? "\\"+electronBase+"\\workbench\\workbench.html"
+			? "\\"+electronBase+"\\workbench\\workbench.esm.html"
 			: "/"+electronBase+"/workbench/workbench.html");
 
 	// modify workbench html

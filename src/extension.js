@@ -104,35 +104,45 @@ function deactivate() {
 }
 
 function uninstall() {
-	var isWin = /^win/.test(process.platform);
-	var appDir = path.dirname(require?.main?.filename || process.execPath);
-	var base = getWorkbenchPath(appDir);
-	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+	try {
+		var isWin = /^win/.test(process.platform);
+		var appDir = path.dirname(require?.main?.filename || process.execPath);
+		var base = getWorkbenchPath(appDir);
+		var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
-	var htmlFile =
-		base +
-		(isWin
-			? "\\"+electronBase+"\\workbench\\workbench.esm.html"
-			: "/"+electronBase+"/workbench/workbench.html");
+		var htmlFile =
+			base +
+			(isWin
+				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
+				: "/"+electronBase+"/workbench/workbench.html");
 
-	// modify workbench html
-	const html = fs.readFileSync(htmlFile, "utf-8");
+		// modify workbench html
+		const html = fs.readFileSync(htmlFile, "utf-8");
 
-	// check if the tag is already there
-	const isEnabled = html.includes("neondreams.js");
+		// check if the tag is already there
+		const isEnabled = html.includes("neondreams.js");
 
-	if (isEnabled) {
-		// delete synthwave script tag if there
-		let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
-		fs.writeFileSync(htmlFile, output, "utf-8");
+		if (isEnabled) {
+			// delete synthwave script tag if there
+			let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
+			fs.writeFileSync(htmlFile, output, "utf-8");
 
-		vscode.window
-			.showInformationMessage("Neon Dreams disabled. VS code must reload for this change to take effect", { title: "Restart editor to complete" })
-			.then(function(msg) {
-				vscode.commands.executeCommand("workbench.action.reloadWindow");
-			});
-	} else {
-		vscode.window.showInformationMessage('Neon dreams isn\'t running.');
+			vscode.window
+				.showInformationMessage("Neon Dreams disabled. VS code must reload for this change to take effect", { title: "Restart editor to complete" })
+				.then(function(msg) {
+					vscode.commands.executeCommand("workbench.action.reloadWindow");
+				});
+		} else {
+			vscode.window.showInformationMessage('Neon dreams isn\'t running.');
+		}
+	} catch (error) {
+		if (/ENOENT|EACCES|EPERM/.test(error.code)) {
+			vscode.window.showInformationMessage("Neon Dreams was unable to modify the core VS code files needed to launch the extension. You may need to run VS code with admin privileges in order to enable Neon Dreams.");
+			return;
+		} else {
+			vscode.window.showErrorMessage('Something went wrong when starting neon dreams');
+			return;
+		}
 	}
 }
 

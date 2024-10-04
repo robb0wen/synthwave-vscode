@@ -32,9 +32,7 @@ function activate(context) {
       const electronBase = isVSCodeBelowVersion('1.70.0')
         ? 'electron-browser'
         : 'electron-sandbox';
-      const htmlFileName = isVSCodeBelowVersion('1.94')
-        ? 'workbench.html'
-        : 'workbench.esm.html';
+      const htmlFileName = 'workbench.html';
       const htmlFile =
         base +
         (isWin
@@ -149,9 +147,7 @@ function uninstall() {
   const electronBase = isVSCodeBelowVersion('1.70.0')
     ? 'electron-browser'
     : 'electron-sandbox';
-  const htmlFileName = isVSCodeBelowVersion('1.94')
-    ? 'workbench.html'
-    : 'workbench.esm.html';
+  const htmlFileName = 'workbench.html';
   const htmlFile =
     base +
     (isWin

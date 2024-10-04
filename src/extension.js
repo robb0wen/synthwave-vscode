@@ -177,7 +177,7 @@ function uninstall() {
         vscode.commands.executeCommand('workbench.action.reloadWindow');
       });
   } else {
-    vscode.window.showInformationMessage('Neon dreams isn't running.');
+    vscode.window.showInformationMessage("Neon dreams isn't running.");
   }
 }
 

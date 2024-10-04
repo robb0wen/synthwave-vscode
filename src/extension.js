@@ -25,7 +25,7 @@ function activate(context) {
 
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require?.main?.filename || process.execPath);
-		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const base = getWorkbenchPath(appDir);
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 		const htmlFile =
@@ -106,7 +106,7 @@ function deactivate() {
 function uninstall() {
 	var isWin = /^win/.test(process.platform);
 	var appDir = path.dirname(require?.main?.filename || process.execPath);
-	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+	var base = getWorkbenchPath(appDir);
 	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 	var htmlFile =
@@ -150,6 +150,25 @@ function isVSCodeBelowVersion(version) {
 	}
 
 	return false;
+}
+
+/**
+ * @function getWorkbenchPath
+ * @description returns a text string with the path of the VScode resources where the workbench is located
+ * depending on whether the system is Windows and the VScode version is later than 1.94.0.
+ * @param {string} extensionDir VScode root path
+ * @returns {string} VSCResourcesPath VScode resources path
+*/
+
+function getWorkbenchPath(extensionDir) {
+	const isWin = /^win/.test(process.platform);
+	let VSCResourcesPath = extensionDir;
+	if (isWin) {
+		VSCResourcesPath += `${isVSCodeBelowVersion("1.94.0") ? "\\vs\\code" : "\\resources\\app\\out\\vs\\code"}`;
+	} else {
+		VSCResourcesPath += `${isVSCodeBelowVersion("1.94.0") ? "/vs/code" : "/resources/app/out/vs/code"}`;
+	}
+	return VSCResourcesPath;
 }
 
 module.exports = {

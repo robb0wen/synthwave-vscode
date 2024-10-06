@@ -13,19 +13,20 @@ function activate(context) {
 	const config = vscode.workspace.getConfiguration("synthwave84");
 
 	let disableGlow = config && config.disableGlow ? !!config.disableGlow : false;
-	
+	const workbencHtmlPath = config && config.workbencHtmlPath ? config.workbencHtmlPath : "";
+	if (workbencHtmlPath && !isValidPath(workbencHtmlPath)) return vscode.window.showInformationMessage(`The path provided is not valid: ${workbencHtmlPath}`);
+
 	let brightness = parseFloat(config.brightness) > 1 ? 1 : parseFloat(config.brightness);
 	brightness = brightness < 0 ? 0 : brightness;
 	brightness = isNaN(brightness) ? 0.45 : brightness;
 
 	const parsedBrightness = Math.floor(brightness * 255).toString(16).toUpperCase();
-	let neonBrightness = parsedBrightness;
 
 	const disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const vscodeDir = path.dirname(require?.main?.filename || process.execPath);
-		const workbenchHtmlPath = recursiveSearchPath(vscodeDir, "workbench", "html");
-		const workbenchJsPath = recursiveSearchPath(vscodeDir, "neondreams", "js");
+		const workbenchHtmlPath = workbencHtmlPath ? workbencHtmlPath : recursiveSearchPath(vscodeDir, "workbench", "html");
+		const workbenchJsPath = workbenchHtmlPath.split(/[\/,\\\\]/).slice(0,-1).join("") + "neondreams.js";
 
 		try {
 			// generate production theme JS
@@ -33,7 +34,7 @@ function activate(context) {
 			const jsTemplate = fs.readFileSync(__dirname +'/js/theme_template.js', 'utf-8');
 			const themeWithGlow = jsTemplate.replace(/\[DISABLE_GLOW\]/g, disableGlow);
 			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
-			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
+			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, parsedBrightness);
 			fs.writeFileSync(workbenchJsPath, finalTheme, "utf-8");
 
 			// modify workbench html
@@ -65,11 +66,15 @@ function activate(context) {
 					});
 			}
 		} catch (e) {
-			if (/ENOENT|EACCES|EPERM/.test(e.code)) {
+			if (/ENOENT/.test(e.code)) {
+				vscode.window.showInformationMessage(`The file "workbench.html" could not be found at the specified path: ${e.path}`);
+			}
+
+			if (/EACCES|EPERM/.test(e.code)) {
 				vscode.window.showInformationMessage("Neon Dreams was unable to modify the core VS code files needed to launch the extension. You may need to run VS code with admin privileges in order to enable Neon Dreams.");
 				return;
 			} else {
-				vscode.window.showErrorMessage('Something went wrong when starting neon dreams');
+				vscode.window.showErrorMessage(`Something went wrong when starting neon dreams: ${e.message}`);
 				return;
 			}
 		}
@@ -113,7 +118,10 @@ function uninstall() {
 			vscode.window.showInformationMessage('Neon dreams isn\'t running.');
 		}
 	} catch (error) {
-		if (/ENOENT|EACCES|EPERM/.test(error.code)) {
+		if (/ENOENT/.test(e.code)) {
+			vscode.window.showInformationMessage(`The file "workbench.html" could not be found at the specified path: ${e.path}`);
+		}
+		if (/EACCES|EPERM/.test(error.code)) {
 			vscode.window.showInformationMessage("Neon Dreams was unable to modify the core VS code files needed to launch the extension. You may need to run VS code with admin privileges in order to enable Neon Dreams.");
 			return;
 		} else {
@@ -178,6 +186,33 @@ function recursiveSearchPath(dir, fileName, extension) {
 
 	// If nothing is found, return null.
 	return null;
+}
+
+/**
+ * @function isValidPath Validates if a given string is a valid file path.
+ * 
+ * @param {string} inputPath - The file path to validate.
+ * @returns {boolean} - Returns true if the path is valid and the file exists; otherwise, false.
+ */
+
+function isValidPath(inputPath) {
+    // Normalize the path, converting backslashes and double slashes to the correct format
+    const normalizedPath = path.normalize(inputPath);
+    
+    // Check if the path has a valid file extension
+    const extension = path.extname(inputPath);
+    
+    if (!extension) {
+        return false; // No file extension, probably not a valid file path
+    }
+    
+    // Optional: Check if the file or directory exists in the system
+    try {
+        fs.accessSync(normalizedPath, fs.constants.F_OK);
+        return true; // The file or directory exists and is accessible
+    } catch (error) {
+        return false; // The file or directory does not exist
+    }
 }
 
 module.exports = {

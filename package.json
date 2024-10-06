@@ -55,6 +55,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Disable the glow effect, but show Synthwave '84 editor chrome updates"
+                },
+                "synthwave84.workbencHtmlPath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The path to the file \"workbench.html\""
                 }
             }
         }

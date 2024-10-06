@@ -53,6 +53,21 @@ In your `settings.json` add the key:
 ```
 To see the changes, you need to rerun the activation function. Open your command palette with `Ctrl + Shift + P` or `Shift + ⌘ + P` and choose "__Enable Neon Dreams__".
 
+### To provide the path to the "workbench.html" file needed to enable "Neon Dreams"
+If the `SynthWave '84` extension cannot find the "workbench.html" file because VScode updated the paths for this file, you need to provide the path manually, either from the extension's configuration interface or from your `settings.json`
+
+The most common path for the "workbench.html" file is:
+```
+(VScode root)\\vs\\code\\electron-sandbox\\workbench\\workbench.html
+```
+
+or for later versions
+```
+(VScode root)\\resources\\app\\out\\vs\\code\\electron-sandbox\\workbench\\workbench.html
+```
+
+NOTE: In case you are on windows, you must separate your directories with "\\\\" double backslash.
+
 ### To remove corruption warning and [unsupported] from title-bar
 Because enabling the glow modifies core files, VS code will interpret this as the core being 'corrupted' and you may see an error message on restarting your editor. You can safely dismiss this message, or remove it entirely with the [Fix VSCode Checksums](https://marketplace.visualstudio.com/items?itemName=lehni.vscode-fix-checksums 'Fix VSCode Checksums') extension.
 

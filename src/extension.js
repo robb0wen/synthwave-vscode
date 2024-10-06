@@ -21,39 +21,23 @@ function activate(context) {
 	const parsedBrightness = Math.floor(brightness * 255).toString(16).toUpperCase();
 	let neonBrightness = parsedBrightness;
 
-	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
+	const disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
-		const isWin = /^win/.test(process.platform);
-		const appDir = path.dirname(require?.main?.filename || process.execPath);
-		const base = getWorkbenchPath(appDir);
-		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
-
-		const htmlFile =
-			base +
-			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
-				: "/"+electronBase+"/workbench/workbench.html");
-
-		const templateFile =
-				base +
-				(isWin
-					? "\\"+electronBase+"\\workbench\\neondreams.js"
-					: "/"+electronBase+"/workbench/neondreams.js");
+		const vscodeDir = path.dirname(require?.main?.filename || process.execPath);
+		const workbenchHtmlPath = recursiveSearchPath(vscodeDir, "workbench", "html");
+		const workbenchJsPath = recursiveSearchPath(vscodeDir, "neondreams", "js");
 
 		try {
-
-			// const version = context.globalState.get(`${context.extensionName}.version`);
-
 			// generate production theme JS
 			const chromeStyles = fs.readFileSync(__dirname +'/css/editor_chrome.css', 'utf-8');
 			const jsTemplate = fs.readFileSync(__dirname +'/js/theme_template.js', 'utf-8');
 			const themeWithGlow = jsTemplate.replace(/\[DISABLE_GLOW\]/g, disableGlow);
 			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
 			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
-			fs.writeFileSync(templateFile, finalTheme, "utf-8");
-			
+			fs.writeFileSync(workbenchJsPath, finalTheme, "utf-8");
+
 			// modify workbench html
-			const html = fs.readFileSync(htmlFile, "utf-8");
+			const html = fs.readFileSync(workbenchHtmlPath, "utf-8");
 
 			// check if the tag is already there
 			const isEnabled = html.includes("neondreams.js");
@@ -64,9 +48,9 @@ function activate(context) {
 				// add script tag
 				output = html.replace(/\<\/html\>/g, `	<!-- SYNTHWAVE 84 --><script src="neondreams.js"></script><!-- NEON DREAMS -->\n`);
 				output += '</html>';
-	
-				fs.writeFileSync(htmlFile, output, "utf-8");
-				
+
+				fs.writeFileSync(workbenchHtmlPath, output, "utf-8");
+
 				vscode.window
 					.showInformationMessage("Neon Dreams enabled. VS code must reload for this change to take effect. Code may display a warning that it is corrupted, this is normal. You can dismiss this message by choosing 'Don't show this again' on the notification.", { title: "Restart editor to complete" })
 					.then(function(msg) {
@@ -105,19 +89,12 @@ function deactivate() {
 
 function uninstall() {
 	try {
-		var isWin = /^win/.test(process.platform);
-		var appDir = path.dirname(require?.main?.filename || process.execPath);
-		var base = getWorkbenchPath(appDir);
-		var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+		const vscodeDir = path.dirname(require?.main?.filename || process.execPath);
 
-		var htmlFile =
-			base +
-			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
-				: "/"+electronBase+"/workbench/workbench.html");
+		const workbenchHtmlPath = recursiveSearchPath(vscodeDir, "workbench", "html");
 
 		// modify workbench html
-		const html = fs.readFileSync(htmlFile, "utf-8");
+		const html = fs.readFileSync(workbenchHtmlPath, "utf-8");
 
 		// check if the tag is already there
 		const isEnabled = html.includes("neondreams.js");
@@ -125,7 +102,7 @@ function uninstall() {
 		if (isEnabled) {
 			// delete synthwave script tag if there
 			let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
-			fs.writeFileSync(htmlFile, output, "utf-8");
+			fs.writeFileSync(workbenchHtmlPath, output, "utf-8");
 
 			vscode.window
 				.showInformationMessage("Neon Dreams disabled. VS code must reload for this change to take effect", { title: "Restart editor to complete" })
@@ -146,39 +123,61 @@ function uninstall() {
 	}
 }
 
-// Returns true if the VS Code version running this extension is below the
-// version specified in the "version" parameter. Otherwise returns false.
-function isVSCodeBelowVersion(version) {
-	const vscodeVersion = vscode.version;
-	const vscodeVersionArray = vscodeVersion.split('.');
-	const versionArray = version.split('.');
-	
-	for (let i = 0; i < versionArray.length; i++) {
-		if (vscodeVersionArray[i] < versionArray[i]) {
-			return true;
+/**
+ * @function recursiveSearchPath recursive function that searches for a specific file by its name and
+ * extension in a directory and its subdirectories.
+ *
+ * @param {string} dir - The root directory where the search will begin.
+ * @param {string} fileName - The base name of the file being searched for (without the extension).
+ * @param {string} extension - The extension of the file being searched for (without the leading dot).
+ * @returns {string|null} - Returns the full path of the file if found; otherwise returns `null`.
+ *
+ * @throws {Error} - If an error occurs while reading the file system.
+ *
+ * @example
+ * // Search for the file 'workbench.html' or 'workbench.esm.html' in a directory
+ * const pathFile = recursiveSearchPath('/path/vscode/directory', 'workbench', 'html');
+ * if (pathFile) {
+ *   console.log(`File found: ${pathFile}`);
+ * } else {
+ *   console.log('File not found');
+ * }
+ */
+
+function recursiveSearchPath(dir, fileName, extension) {
+	// Get the list of files and directories in the current directory
+	const archivos = fs.readdirSync(dir);
+
+	for (const archivo of archivos) {
+		// Get the full path of the file or directory
+		const rutaCompleta = path.join(dir, archivo);
+
+		// Check if it is a directory
+		const esDirectorio = fs.statSync(rutaCompleta).isDirectory();
+
+		if (esDirectorio) {
+			// If it is a directory, perform the search recursively within it
+			try {
+				const resultado = recursiveSearchPath(rutaCompleta, fileName, extension);
+				if (resultado) {
+					return resultado; // If we find the file, we return the path
+				}
+			} catch (error) {
+				// If any error occurs in the subfolder, we ignore it and continue searching.
+			}
+		} else {
+			// Create a dynamic regular expression to compare file name and extension
+			const regex = new RegExp(`${fileName}.*\\.${extension}$`);
+
+			// If the file matches the pattern, we return its full path
+			if (regex.test(archivo)) {
+				return rutaCompleta;
+			}
 		}
 	}
 
-	return false;
-}
-
-/**
- * @function getWorkbenchPath
- * @description returns a text string with the path of the VScode resources where the workbench is located
- * depending on whether the system is Windows and the VScode version is later than 1.94.0.
- * @param {string} extensionDir VScode root path
- * @returns {string} VSCResourcesPath VScode resources path
-*/
-
-function getWorkbenchPath(extensionDir) {
-	const isWin = /^win/.test(process.platform);
-	let VSCResourcesPath = extensionDir;
-	if (isWin) {
-		VSCResourcesPath += `${isVSCodeBelowVersion("1.94.0") ? "\\vs\\code" : "\\resources\\app\\out\\vs\\code"}`;
-	} else {
-		VSCResourcesPath += `${isVSCodeBelowVersion("1.94.0") ? "/vs/code" : "/resources/app/out/vs/code"}`;
-	}
-	return VSCResourcesPath;
+	// If nothing is found, return null.
+	return null;
 }
 
 module.exports = {

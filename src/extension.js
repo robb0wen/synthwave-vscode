@@ -25,7 +25,12 @@ function activate(context) {
 	const disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const vscodeDir = path.dirname(require?.main?.filename || process.execPath);
-		const workbenchHtmlPath = workbencHtmlPath ? workbencHtmlPath : recursiveSearchPath(vscodeDir, "workbench", "html");
+		const workbenchHtmlPath = workbencHtmlPath || recursiveSearchPath(vscodeDir, "workbench", "html");
+
+		if (!workbenchHtmlPath) {
+			return vscode.window.showInformationMessage(`No path found for "workbench.html", you can provide one in the extension configuration interface or "settings.json"`);
+		}
+
 		const workbenchJsPath = workbenchHtmlPath.split(/[\/,\\\\]/).slice(0,-1).join("") + "neondreams.js";
 
 		try {

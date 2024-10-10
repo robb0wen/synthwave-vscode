@@ -105,15 +105,15 @@ function deactivate() {
 
 function uninstall() {
 	var isWin = /^win/.test(process.platform);
-	var appDir = path.dirname(require.main.filename);
-	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+	const appDir = path.dirname(vscode.env.appRoot);
+	const base = appDir + (isWin ? "\\app\\out\\vs\\code" : "/app/out/vs/code");
 	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 	var htmlFile =
 		base +
 		(isWin
-			? "\\"+electronBase+"\\workbench\\workbench.html"
-			: "/"+electronBase+"/workbench/workbench.html");
+			? "\\"+electronBase+"\\workbench\\workbench.esm.html"
+			: "/"+electronBase+"/workbench/workbench.esm.html");
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");

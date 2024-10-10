@@ -24,15 +24,15 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const isWin = /^win/.test(process.platform);
-		const appDir = path.dirname(require.main.filename);
-		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const appDir = path.dirname(vscode.env.appRoot);
+		const base = appDir + (isWin ? "\\app\\out\\vs\\code" : "/app/out/vs/code");
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 		const htmlFile =
 			base +
 			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.html"
-				: "/"+electronBase+"/workbench/workbench.html");
+				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
+				: "/"+electronBase+"/workbench/workbench.esm.html");
 
 		const templateFile =
 				base +

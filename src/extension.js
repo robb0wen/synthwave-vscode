@@ -24,15 +24,15 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const isWin = /^win/.test(process.platform);
-		const appDir = path.dirname(require.main.filename);
-		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const appDir = vscode.env.appRoot;
+		const base = appDir + (isWin ? "\\out\\vs\\code" : "/out/vs/code");
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 		const htmlFile =
 			base +
 			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.html"
-				: "/"+electronBase+"/workbench/workbench.html");
+				? "\\"+electronBase+"\\workbench\\workbench.esm.html"
+				: "/"+electronBase+"/workbench/workbench.esm.html");
 
 		const templateFile =
 				base +
@@ -105,15 +105,15 @@ function deactivate() {
 
 function uninstall() {
 	var isWin = /^win/.test(process.platform);
-	var appDir = path.dirname(require.main.filename);
-	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+	var appDir = vscode.env.appRoot;
+	var base = appDir + (isWin ? "\\out\\vs\\code" : "/out/vs/code");
 	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 	var htmlFile =
 		base +
 		(isWin
-			? "\\"+electronBase+"\\workbench\\workbench.html"
-			: "/"+electronBase+"/workbench/workbench.html");
+			? "\\"+electronBase+"\\workbench\\workbench.esm.html"
+			: "/"+electronBase+"/workbench/workbench.esm.html");
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");

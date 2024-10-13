@@ -31,7 +31,7 @@ function activate(context) {
 			return vscode.window.showInformationMessage(`No path found for "workbench.html", you can provide one in the extension configuration interface or "settings.json"`);
 		}
 
-		const workbenchJsPath = workbenchHtmlPath.split(/[\/,\\\\]/).slice(0,-1).join("") + "neondreams.js";
+		const workbenchJsPath = path.join(path.dirname(workbenchHtmlPath), "neondreams.js");
 
 		try {
 			// generate production theme JS

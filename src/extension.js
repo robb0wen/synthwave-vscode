@@ -23,22 +23,13 @@ function activate(context) {
 
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
-		const isWin = /^win/.test(process.platform);
-		const appDir = path.dirname(require.main.filename);
-		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const appDir = path.dirname(vscode.env.appRoot);
+		const base = path.join(appDir,'app','out','vs','code');
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+		const workBenchFilename = isVSCodeBelowVersion("1.94.0") ? "workbench.html" : "workbench.esm.html";
 
-		const htmlFile =
-			base +
-			(isWin
-				? "\\"+electronBase+"\\workbench\\workbench.html"
-				: "/"+electronBase+"/workbench/workbench.html");
-
-		const templateFile =
-				base +
-				(isWin
-					? "\\"+electronBase+"\\workbench\\neondreams.js"
-					: "/"+electronBase+"/workbench/neondreams.js");
+		const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
+		const templateFile = path.join(base, electronBase, "workbench", "neondreams.js");
 
 		try {
 
@@ -104,16 +95,12 @@ function deactivate() {
 }
 
 function uninstall() {
-	var isWin = /^win/.test(process.platform);
-	var appDir = path.dirname(require.main.filename);
-	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
-	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+	const appDir = path.dirname(vscode.env.appRoot);
+	const base = path.join(appDir, 'app', 'out', 'vs', 'code');
+	const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+	const workBenchFilename = isVSCodeBelowVersion("1.94.0") ? "workbench.html" : "workbench.esm.html";
 
-	var htmlFile =
-		base +
-		(isWin
-			? "\\"+electronBase+"\\workbench\\workbench.html"
-			: "/"+electronBase+"/workbench/workbench.html");
+	const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");

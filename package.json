@@ -13,7 +13,9 @@
     "engines": {
         "vscode": "^1.33.0"
     },
-    "extensionKind": ["ui"],
+    "extensionKind": [
+        "ui"
+    ],
     "keywords": [
         "retro",
         "80s"
@@ -59,8 +61,5 @@
                 }
             }
         }
-    },
-    "dependencies": {
-        "semver": "^7.5.2"
     }
 }

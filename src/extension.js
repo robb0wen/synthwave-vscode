@@ -25,7 +25,8 @@ function activate(context) {
 		const appDir = path.dirname(vscode.env.appRoot);
 		const base = path.join(appDir,'app','out','vs','code');
 		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
-		const workBenchFilename = isVSCodeBelowVersion("1.94.0") ? "workbench.html" : "workbench.esm.html";
+		// https://github.com/microsoft/vscode/commit/d2701aa2ec51f213293772173067b173cad98b2c#diff-119c3f1a959580e824995273ceee0d8c37a5b6386f34937aaa66d0107a207287L60
+		const workBenchFilename = vscode.version === "1.94.0" ? "workbench.esm.html" : "workbench.html"
 
 		const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 		const templateFile = path.join(base, electronBase, "workbench", "neondreams.js");
@@ -97,7 +98,7 @@ function uninstall() {
 	const appDir = path.dirname(vscode.env.appRoot);
 	const base = path.join(appDir, 'app', 'out', 'vs', 'code');
 	const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
-	const workBenchFilename = isVSCodeBelowVersion("1.94.0") ? "workbench.html" : "workbench.esm.html";
+	const workBenchFilename = vscode.version === "1.94.0" ? "workbench.esm.html" : "workbench.html"
 
 	const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 

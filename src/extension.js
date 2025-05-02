@@ -126,12 +126,20 @@ function uninstall() {
 // version specified in the "version" parameter. Otherwise returns false.
 function isVSCodeBelowVersion(version) {
 	const vscodeVersion = vscode.version;
-	const vscodeVersionArray = vscodeVersion.split('.');
-	const versionArray = version.split('.');
+	const vscodeVersionArray = vscodeVersion.split('.').map(Number);
+	const versionArray = version.split('.').map(Number);
+
+	const len = Math.max(vscodeVersionArray.length, versionArray.length);
 	
-	for (let i = 0; i < versionArray.length; i++) {
-		if (vscodeVersionArray[i] < versionArray[i]) {
+	for (let i = 0; i < len; i++) {
+		const vscodePart = vscodeVersionArray[i] ?? 0;
+		const versionPart = versionArray[i] ?? 0;
+
+		if (vscodePart < versionPart) {
 			return true;
+		}
+		if (vscodePart > versionPart) {
+			return false;
 		}
 	}
 

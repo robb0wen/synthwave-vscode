@@ -54,15 +54,26 @@
   position: relative;
 }
 
-.monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked::after {
+@keyframes gradientline{
+  0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active::after {
   content: '';
   position: absolute;
-  bottom: 0px;
-  top: 0px;
-  left: 0px;
-  width: 4px;
-  background: linear-gradient(to bottom, #fc28a8, #03edf9) !important;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #fc28a8, #03edf9, #fc28a8, #03edf9,#fc28a8);
+  background-size: 200% 200%;
+  animation: gradientline 1s linear infinite;
   opacity: 1;
+  z-index: 6;
 }
 
 .monaco-workbench .activitybar>.content .monaco-action-bar .action-item::after {

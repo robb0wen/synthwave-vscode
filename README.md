@@ -70,6 +70,9 @@ I haven't included a font in this release as I know that it's a very personal pr
 ## Compatibility
 This theme is still **very much a work in progress**. I primarily develop in HTML & CSS, JS, React and Elixir so, whilst those language sets should look pretty good, there will likely be issues for other languages. I'll work on adding more support as I go. If you find anything glaringly wrong, raise an issue and I'll try to fix it as soon as I can.
 
+## Availability on other Softwares
+This theme can be used in other softwares thanks to the awesome work of [Themer](https://themer.dev/). You'll find a preset of themer with synthwave colors [by clicking this link](https://themer.dev/?activeColorSet=dark&colors.light.shade0=%23ffffff&colors.light.shade7=%23232530&colors.light.accent5=%232EE2FA&colors.light.accent0=%23fe4450&colors.light.accent2=%23f97e72&colors.light.accent3=%2372f1b8&colors.light.accent4=%2303edf9&colors.light.accent7=%23ff7edb&colors.light.accent1=%23232530&colors.light.accent6=%23fede5d&colors.dark.accent0=%23fe4450&colors.dark.shade0=%23262335&colors.dark.shade7=%23ffffff&colors.dark.accent1=%23848bbd&colors.dark.accent2=%23fede5d&colors.dark.accent3=%2372f1b8&colors.dark.accent4=%2303edf9&colors.dark.accent5=%232ee2fa&colors.dark.accent6=%23f97e72&colors.dark.accent7=%23ff7edb&colors.dark.shade1=%23495495&colors.dark.shade2=%23b893ce99&colors.dark.shade3=%23463465&colors.dark.shade4=%23ffffff&colors.dark.shade5=%23ff7edb&colors.dark.shade6=%23A148AB80&calculateIntermediaryShades.dark=false&calculateIntermediaryShades.light=false).
+
 ## Contributing
 I'm really happy to consider any contributions to this theme. Before you make any changes, [please read the contribution guide](https://github.com/robb0wen/synthwave-vscode/blob/master/CONTRIBUTING.md).
 

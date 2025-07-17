@@ -8,11 +8,11 @@ const vscode = require('vscode');
 function activate(context) {
 	this.extensionName = 'RobbOwen.synthwave-vscode';
 	this.cntx = context;
-	
+
 	const config = vscode.workspace.getConfiguration("synthwave84");
 
 	let disableGlow = config && config.disableGlow ? !!config.disableGlow : false;
-	
+
 	let brightness = parseFloat(config.brightness) > 1 ? 1 : parseFloat(config.brightness);
 	brightness = brightness < 0 ? 0 : brightness;
 	brightness = isNaN(brightness) ? 0.45 : brightness;
@@ -23,9 +23,13 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
 
 		const appDir = path.dirname(vscode.env.appRoot);
-		const base = path.join(appDir,'app','out','vs','code');
-		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
-		const workBenchFilename = vscode.version == "1.94.0" ? "workbench.esm.html" : "workbench.html";
+		const base = path.join(appDir, 'app', 'out', 'vs', 'code');
+		const workbenchPaths = resolveWorkbenchPaths(base);
+		if (!workbenchPaths) {
+			vscode.window.showErrorMessage("Neon Dreams could not find the workbench HTML file. This is likely due to a change in VS Code's internal structure. Please open an issue on the Neon Dreams GitHub repository to report this.");
+			return;
+		}
+		const [electronBase, workBenchFilename] = workbenchPaths;
 
 		const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 		const templateFile = path.join(base, electronBase, "workbench", "neondreams.js");
@@ -35,13 +39,13 @@ function activate(context) {
 			// const version = context.globalState.get(`${context.extensionName}.version`);
 
 			// generate production theme JS
-			const chromeStyles = fs.readFileSync(__dirname +'/css/editor_chrome.css', 'utf-8');
-			const jsTemplate = fs.readFileSync(__dirname +'/js/theme_template.js', 'utf-8');
+			const chromeStyles = fs.readFileSync(__dirname + '/css/editor_chrome.css', 'utf-8');
+			const jsTemplate = fs.readFileSync(__dirname + '/js/theme_template.js', 'utf-8');
 			const themeWithGlow = jsTemplate.replace(/\[DISABLE_GLOW\]/g, disableGlow);
 			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
 			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
 			fs.writeFileSync(templateFile, finalTheme, "utf-8");
-			
+
 			// modify workbench html
 			const html = fs.readFileSync(htmlFile, "utf-8");
 
@@ -54,9 +58,9 @@ function activate(context) {
 				// add script tag
 				output = html.replace(/\<\/html\>/g, `	<!-- SYNTHWAVE 84 --><script src="neondreams.js"></script><!-- NEON DREAMS -->\n`);
 				output += '</html>';
-	
+
 				fs.writeFileSync(htmlFile, output, "utf-8");
-				
+
 				vscode.window
 					.showInformationMessage("Neon Dreams enabled. VS code must reload for this change to take effect. Code may display a warning that it is corrupted, this is normal. You can dismiss this message by choosing 'Don't show this again' on the notification.", { title: "Restart editor to complete" })
 					.then(function(msg) {
@@ -82,7 +86,7 @@ function activate(context) {
 	});
 
 	let disable = vscode.commands.registerCommand('synthwave84.disableNeon', uninstall);
-	
+
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);
 }
@@ -96,8 +100,12 @@ function deactivate() {
 function uninstall() {
 	const appDir = path.dirname(vscode.env.appRoot);
 	const base = path.join(appDir, 'app', 'out', 'vs', 'code');
-	const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
-	const workBenchFilename = vscode.version == "1.94.0" ? "workbench.esm.html" : "workbench.html";
+	const workbenchPaths = resolveWorkbenchPaths(base);
+	if (!workbenchPaths) {
+		vscode.window.showErrorMessage("Neon Dreams could not find the workbench HTML file. This is likely due to a change in VS Code's internal structure. Please open an issue on the Neon Dreams GitHub repository to report this.");
+		return;
+	}
+	const [electronBase, workBenchFilename] = workbenchPaths;
 
 	const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 
@@ -122,28 +130,33 @@ function uninstall() {
 	}
 }
 
-// Returns true if the VS Code version running this extension is below the
-// version specified in the "version" parameter. Otherwise returns false.
-function isVSCodeBelowVersion(version) {
-	const vscodeVersion = vscode.version;
-	const vscodeVersionArray = vscodeVersion.split('.').map(Number);
-	const versionArray = version.split('.').map(Number);
+// Find the workbench HTML file and electron base directory.
+// Returns an array with the electron base directory and the workbench HTML filename.
+// If not found, returns null.
+function resolveWorkbenchPaths(base) {
+	const electronBaseCandidates = [
+		// v1.70-, v1.102+
+		"electron-browser",
+		// v1.70 ~ v1.102
+		"electron-sandbox",
+	]
 
-	const len = Math.max(vscodeVersionArray.length, versionArray.length);
-	
-	for (let i = 0; i < len; i++) {
-		const vscodePart = vscodeVersionArray[i] ?? 0;
-		const versionPart = versionArray[i] ?? 0;
+	const htmlCandidates = [
+		// v1.94.0
+		"workbench.esm.html",
+		// other
+		"workbench.html",
+	];
 
-		if (vscodePart < versionPart) {
-			return true;
-		}
-		if (vscodePart > versionPart) {
-			return false;
+	for (const electronBase of electronBaseCandidates) {
+		for (const htmlFile of htmlCandidates) {
+			if (fs.existsSync(path.join(base, electronBase, "workbench", htmlFile))) {
+				return [electronBase, htmlFile];
+			}
 		}
 	}
 
-	return false;
+	return null;
 }
 
 module.exports = {

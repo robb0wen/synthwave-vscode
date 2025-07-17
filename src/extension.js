@@ -24,7 +24,12 @@ function activate(context) {
 
 		const appDir = path.dirname(vscode.env.appRoot);
 		const base = path.join(appDir, 'app', 'out', 'vs', 'code');
-		const [electronBase, workBenchFilename] = resolveWorkbenchPaths(base);
+		const workbenchPaths = resolveWorkbenchPaths(base);
+		if (!workbenchPaths) {
+			vscode.window.showErrorMessage("Neon Dreams could not find the workbench HTML file. This is likely due to a change in VS Code's internal structure. Please open an issue on the Neon Dreams GitHub repository to report this.");
+			return;
+		}
+		const [electronBase, workBenchFilename] = workbenchPaths;
 
 		const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 		const templateFile = path.join(base, electronBase, "workbench", "neondreams.js");
@@ -95,7 +100,12 @@ function deactivate() {
 function uninstall() {
 	const appDir = path.dirname(vscode.env.appRoot);
 	const base = path.join(appDir, 'app', 'out', 'vs', 'code');
-	const [electronBase, workBenchFilename] = resolveWorkbenchPaths(base);
+	const workbenchPaths = resolveWorkbenchPaths(base);
+	if (!workbenchPaths) {
+		vscode.window.showErrorMessage("Neon Dreams could not find the workbench HTML file. This is likely due to a change in VS Code's internal structure. Please open an issue on the Neon Dreams GitHub repository to report this.");
+		return;
+	}
+	const [electronBase, workBenchFilename] = workbenchPaths;
 
 	const htmlFile = path.join(base, electronBase, "workbench", workBenchFilename);
 

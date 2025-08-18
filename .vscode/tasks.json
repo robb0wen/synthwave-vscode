@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run build",
+            "type": "shell",
+            "command": "./scripts/build.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Install extension to local VSCode instance",
+            "type": "shell",
+            "command": "./scripts/install.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and install extension to local VSCode instance",
+            "type": "shell",
+            "command": "./scripts/build.sh && ./scripts/install.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

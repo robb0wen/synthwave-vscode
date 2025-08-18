@@ -61,7 +61,7 @@
     "editorCursor.foreground": "#f97e72",
     "editor.selectionBackground": "#ffffff20",
     "editor.selectionHighlightBackground": "#ffffff20",
-    "editor.wordHighlightBackground": "#34294f88",
+    "editor.wordHighlightBackground": "#493a6e88",
     "editor.wordHighlightStrongBackground": "#34294f88",
     "editor.findMatchBackground": "#D18616bb",
     "editor.findMatchHighlightBackground": "#D1861655",

@@ -867,5 +867,19 @@
         "foreground": "#72f1b8",
       }
     },
+    {
+      "name": "Diff markup deleted",
+      "scope": ["markup.deleted", "meta.diff.header.from-file", "punctuation.definition.deleted"],
+      "settings": {
+        "foreground": "#ffa198"
+      }
+    },
+    {
+      "name": "Diff markup inserted",
+      "scope": ["markup.inserted", "meta.diff.header.from-file", "punctuation.definition.inserted"],
+      "settings": {
+        "foreground": "#72f1b8"
+      }
+    }
   ]
 }
